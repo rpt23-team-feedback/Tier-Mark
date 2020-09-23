@@ -1,0 +1,23 @@
+{
+  "name": "tier-mark",
+  "version": "1.0.0",
+  "description": "Tier module for FEC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theofficetroll/Tier-Mark.git"
+  },
+  "author": "Mark Scrudder",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theofficetroll/Tier-Mark/issues"
+  },
+  "homepage": "https://github.com/theofficetroll/Tier-Mark#readme",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
