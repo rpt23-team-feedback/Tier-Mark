@@ -14,20 +14,23 @@ const seedBundle = () => {
     cost = Math.floor(Math.random() * 4) * 5;
     bundleData.push({
       bundleId : bundleId,
-      tierId : tierId
+      tierId : tierId,
+      order: 1
     });
     tierId = Math.floor(Math.random() * 16) + 18;
     cost = Math.floor(Math.random() * 4) * 5;
     bundleData.push({
       bundleId : bundleId,
       tierId : tierId,
-      cost : cost
+      cost : cost,
+      order: 2
     });
     tierId = Math.floor(Math.random() * 15) + 35;
     cost = Math.floor(Math.random() * 4) * 5;
     bundleData.push({
       bundleId : bundleId,
-      tierId : tierId
+      tierId : tierId,
+      order: 3
     });
   }
   // console.log('bundleData', bundleData);
@@ -43,42 +46,54 @@ const seedTiers = () => {
   var tierData = [];
   for (let i = 1; i <= 100; i++) {
     tierId = i;
+    order = 1;
     itemId = Math.floor(Math.random() * 48) + 1;
     tierData.push ({
       tierId : tierId,
-      itemId : itemId
+      itemId : itemId,
+      order: order
     });
+    order++;
     itemId = Math.floor(Math.random() * 48) + 49;
     tierData.push ({
       tierId : tierId,
-      itemId : itemId
+      itemId : itemId,
+      order: order
     });
+    order++;
     if (Math.random() < .3 ) {
       itemId = Math.floor(Math.random() * 48) + 97;
       tierData.push ({
         tierId : tierId,
-        itemId : itemId
+        itemId : itemId,
+        order: order
       });
+      order++;
     }
     if (Math.random() < .3 ) {
       itemId = Math.floor(Math.random() * 48) + 145;
       tierData.push ({
         tierId : tierId,
-        itemId : itemId
+        itemId : itemId,
+        order: order
       });
+      order++;
     }
     if (Math.random() < .3 ) {
       itemId = Math.floor(Math.random() * 48) + 193;
       tierData.push ({
         tierId : tierId,
-        itemId : itemId
+        itemId : itemId,
+        order: order
       });
+      order++;
     }
     if (Math.random() < .3 ) {
       itemId = Math.floor(Math.random() * 48) + 241;
       tierData.push ({
         tierId : tierId,
-        itemId : itemId
+        itemId : itemId,
+        order: order
       })
     }
   }

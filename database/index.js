@@ -10,16 +10,16 @@ const connection = mysql.createConnection(mysqlConfig);
 var Bundles = sequelize.define('bundles', {
   bundleId: Sequelize.INTEGER,
   tierId: Sequelize.INTEGER,
-  cost: Sequelize.INTEGER
+  cost: Sequelize.INTEGER,
+  order: Sequelize.INTEGER
 });
 
 var Tiers = sequelize.define('tiers', {
   tierId: Sequelize.INTEGER,
-  itemId: Sequelize.INTEGER
+  itemId: Sequelize.INTEGER,
+  order: Sequelize.INTEGER
 });
 
-// sequelize.query("CREATE DATABASE `humblebundle`;")
-// .then(() => {
 
 // })
 Bundles.drop()
