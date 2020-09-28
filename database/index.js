@@ -26,7 +26,7 @@ Bundles.drop()
 .then(() => {
   Bundles.sync({ force: true })
   .then(() => {
-    data = Seed.seedBundle();
+    data = Seed.seedBundles();
     // console.log('seedBundle', data);
     Bundles.bulkCreate(data, { validate: true })
     .then(() => {

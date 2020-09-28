@@ -5,7 +5,7 @@ const db = require('./index.js');
 // for each bundle 1-100
 // 3 random tiers
 // random cost 5-20
-const seedBundle = () => {
+const seedBundles = () => {
   var bundleId, tierId1, tierId2, tierId3, cost;
   var bundleData = [];
   for (let i = 0; i <= 99; i++) {
@@ -40,56 +40,51 @@ const seedBundle = () => {
 const seedTiers = () => {
   var tierId, itemId;
   var tierData = [];
-  for (let i = 1; i <= 100; i++) {
+  for (let i = 1; i <= 300; i++) {
     tierId = i;
-    order = 1;
+    tierOrder = 1;
     itemId = Math.floor(Math.random() * 48) + 1;
     tierData.push ({
       tierId : tierId,
       itemId : itemId,
-      order: order
+      itemOrder: tierOrder += 1
     });
-    order++;
     itemId = Math.floor(Math.random() * 48) + 49;
     tierData.push ({
       tierId : tierId,
       itemId : itemId,
-      order: order
+      itemOrder: tierOrder += 1
     });
-    order++;
     if (Math.random() < .3 ) {
       itemId = Math.floor(Math.random() * 48) + 97;
       tierData.push ({
         tierId : tierId,
         itemId : itemId,
-        order: order
+        itemOrder: tierOrder += 1
       });
-      order++;
     }
     if (Math.random() < .3 ) {
       itemId = Math.floor(Math.random() * 48) + 145;
       tierData.push ({
         tierId : tierId,
         itemId : itemId,
-        order: order
+        itemOrder: tierOrder += 1
       });
-      order++;
     }
     if (Math.random() < .3 ) {
       itemId = Math.floor(Math.random() * 48) + 193;
       tierData.push ({
         tierId : tierId,
         itemId : itemId,
-        order: order
+        itemOrder: tierOrder += 1
       });
-      order++;
     }
     if (Math.random() < .3 ) {
       itemId = Math.floor(Math.random() * 48) + 241;
       tierData.push ({
         tierId : tierId,
         itemId : itemId,
-        order: order
+        itemOrder: tierOrder += 1
       })
     }
   }
@@ -99,5 +94,5 @@ const seedTiers = () => {
 
 
 module.exports = {
-  seedBundle, seedTiers
+  seedBundles, seedTiers
 };
