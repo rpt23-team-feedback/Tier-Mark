@@ -6,7 +6,7 @@ const db = require('./index.js');
 // 3 random tiers
 // random cost 5-20
 const seedBundle = () => {
-  var bundleId, tierId1, tierId2, tierId3, cost, tierOrder;
+  var bundleId, tierId1, tierId2, tierId3, cost;
   var bundleData = [];
   for (let i = 0; i <= 99; i++) {
     bundleId = i;
@@ -17,16 +17,16 @@ const seedBundle = () => {
     bundleData.push({
       bundleId : bundleId,
       tierId : tierId1,
-      order: 1
+      tierOrder: 1
     }, {
       bundleId : bundleId,
       tierId : tierId2,
       cost : cost,
-      order: 2
+      tierOrder: 2
     }, {
       bundleId : bundleId,
       tierId : tierId3,
-      order: 3
+      tierOrder: 3
     });
   }
   // console.log('bundleData', bundleData);

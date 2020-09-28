@@ -11,13 +11,13 @@ var Bundles = sequelize.define('bundles', {
   bundleId: Sequelize.INTEGER,
   tierId: Sequelize.INTEGER,
   cost: Sequelize.INTEGER,
-  order: Sequelize.INTEGER
+  tierOrder: Sequelize.INTEGER
 });
 
 var Tiers = sequelize.define('tiers', {
   tierId: Sequelize.INTEGER,
   itemId: Sequelize.INTEGER,
-  order: Sequelize.INTEGER
+  itemOrder: Sequelize.INTEGER
 });
 
 
