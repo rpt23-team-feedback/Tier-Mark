@@ -59,6 +59,16 @@ Tiers.drop()
   })
 });
 
+const tiersRequest = (data) => {
+  let bundleId = data.bundleId;
+  connection.query()
+  .then()
+};
 
-exports.Bundles = Bundles;
-exports.Tiers = Tiers;
+const itemsRequest = (data) => {
+  //
+};
+
+module.exports = {
+  Bundles, Tiers, tiersRequest, itemsRequest
+}
