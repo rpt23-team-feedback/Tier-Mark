@@ -9,7 +9,7 @@ const seedBundle = () => {
   var bundleId, tierId1, tierId2, tierId3, cost;
   var bundleData = [];
   for (let i = 0; i <= 99; i++) {
-    bundleId = i;
+    bundleId = i + 1;
     cost = Math.floor(Math.random() * 4) * 5;
     tierId1 = i*3 + 1;
     tierId2 = i*3 + 2;
