@@ -61,12 +61,26 @@ Tiers.drop()
 
 const tiersRequest = (data) => {
   let bundleId = data.bundleId;
-  connection.query()
-  .then()
+  Bundles.findAll({
+    where: {
+      bundleId: bundleId
+    }
+  })
+  .then(data => {
+    return data;
+  })
 };
 
 const itemsRequest = (data) => {
-  //
+  let tierId = data.tierId;
+  Tiers.findAll({
+    where: {
+      tierId: tierId
+    }
+  })
+  .then(data => {
+    return data;
+  })
 };
 
 module.exports = {
