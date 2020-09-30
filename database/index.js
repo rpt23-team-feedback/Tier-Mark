@@ -21,7 +21,6 @@ var Tiers = sequelize.define('tiers', {
 });
 
 
-// })
 Bundles.drop()
 .then(() => {
   Bundles.sync({ force: true })

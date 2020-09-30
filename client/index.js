@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
+import Item from './components/Item.js';
 
 
 class Tier extends React {
   constructor (props) {
     super (props);
     this.state = {
-      // TODO items in state
+      // Some of this will move to Item component
+      // But I want all of it together so I can easily see it all at once
       bundleId: 1,
-      tier1: {
+      tier: {
         tierId: 1,  // from this service
         tierCost: 1,  // minimum cost
         items: {
@@ -25,7 +26,7 @@ class Tier extends React {
             }
           },
           item2: {
-            itemId: 2,  // from Tiers
+            itemId: 2,  // from this service
             itemName: 'game 2', // from Item service
             itemImage: '',  // from Item service
             availability: '', // from System Requirements service
@@ -35,27 +36,35 @@ class Tier extends React {
               reviewsFrom: 'Steam'  // from Reviews service
             }
           }
+          // Will need to extend to max number of items later
         }
-      },
-      tier2: {
-        tierId: 2,  // from this service
-        tierCost: 5,  // from Top Contributors service
-        items: {}
-      },
-      tier3: {
-        tierId: 2,  // from this service
-        tierCost: 12,  // from this service
-        items: ''
       }
     }
   }
 
+  getTierData() {
+    let tierId = this.tierId;
+    $.ajax({
+      method: 'GET',
+      url: './itemsIncluded',
+      datatype: 'json'
+    })
+    .done(data => {
+      this.setState({
+
+      })
+    })
+  }
 
 
   render() {
-    <div>
-      Some stuff
-    </div>
+    return (
+      <div>
+        <div className="item">
+          <Item />
+        </div>
+      </div>
+    )
   }
 }
 
