@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Item from './components/item.js';
+import Item from './item.jsx';
 
 class Tier extends React {
   constructor (props) {
@@ -42,10 +42,10 @@ class Tier extends React {
   }
 
   getTierData() {
-    let tierId = this.tierId;
+    let tierId = this.state.tier.tierId;
     $.ajax({
       method: 'GET',
-      url: './itemsIncluded',
+      url: './itemsIncluded:' + tierId,
       datatype: 'json'
     })
     .done(data => {
@@ -68,3 +68,5 @@ class Tier extends React {
 }
 
 ReactDOM.render(<Tier />, document.getElementById('Tier'));
+
+export default Tier;

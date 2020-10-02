@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname, '..public')));
 
 const PORT = 3101;
 
-app.listen(PORT, () => console.log('listening on port', port));
+app.listen(PORT, () => console.log('listening on port', PORT));
 
 app.get('./tiersIncluded:bundleId', (req, res) => {
   const dataString = req.params;
@@ -19,8 +19,8 @@ app.get('./tiersIncluded:bundleId', (req, res) => {
   res.send(tiersData);
 });
 
-app.get('./itemsIncluded', (req, res) => {
-  const dataString = req.body;
+app.get('./itemsIncluded:tierId', (req, res) => {
+  const dataString = req.params;
   const itemsData = db.itemsRequest(dataString);
   res.send(itemsData);
 });

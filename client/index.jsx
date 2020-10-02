@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Tier from './components/tier.js';
+import Tier from './components/tier.jsx';
 
 class Tiers extends React {
   constructor(props) {
     super(props);
     this.state = {
-      bundleId = 1,
-      tier1Id = 1,
-      tier2Id = 2,
-      tier3Id = 3
+      bundleId: 1,
+      tier1Id: 1,
+      tier2Id: 2,
+      tier3Id: 3
     }
   }
 
