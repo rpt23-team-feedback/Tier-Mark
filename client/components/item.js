@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 
-class Item extends React.Component {
+class Item extends React {
   constructor(props) {
     super(props);
     this.state = {
