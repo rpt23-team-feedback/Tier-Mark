@@ -13,8 +13,8 @@ const PORT = 3101;
 
 app.listen(PORT, () => console.log('listening on port', port));
 
-app.get('./tiersIncluded', (req, res) => {
-  const dataString = req.body;
+app.get('./tiersIncluded:bundleId', (req, res) => {
+  const dataString = req.params;
   const tiersData = db.tiersRequest(dataString);
   res.send(tiersData);
 });

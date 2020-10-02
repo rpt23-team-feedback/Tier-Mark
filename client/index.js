@@ -14,24 +14,26 @@ class Tiers extends React {
   }
 
   getTierData() {
-    let tierId = this.tierId;
+    let bundleId = this.bundleId;
     $.ajax({
       method: 'GET',
-      url: './tiersIncluded',
-      datatype: 'json'
-    })
-    .done(data => {
-      console.log(data);
-      this.setState({
-        //TODO
-      })
+      url: './tiersIncluded:' + bundleId,
+      datatype: 'json',
+      success: (data) => {
+        this.setState(data);
+      },
+      error: (err) => {
+        console.log('err',err);
+      }
     })
   }
 
   render() {
     return (
       <div>
-        <Tier />
+        <Tier tierId={this.state.tier1Id}/>
+        <Tier tierId={this.state.tier2Id}/>
+        <Tier tierId={this.state.tier3Id}/>
       </div>
     )
   }
