@@ -6,9 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js",
     "test": "",
-    "seed": "node database/index.js",
-    "react-dev": "webpack -d -watch",
-    "server-dev": "nodemon server/index.js"
+    "seed": "node database/index.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +21,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "html-webpack-plugin": "^4.5.0",
+    "jquery": "^3.5.1",
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.4",

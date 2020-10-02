@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Tier from './components/tier.jsx';
+import $ from 'jquery';
 
 class Tiers extends React.Component {
   constructor(props) {
@@ -11,16 +12,23 @@ class Tiers extends React.Component {
       tier2Id: 2,
       tier3Id: 3
     }
+    this.getTierData = this.getTierData.bind(this);
+  }
+
+  componentDidMount() {
+    this.getTierData();
   }
 
   getTierData() {
     let bundleId = this.bundleId;
     $.ajax({
       method: 'GET',
-      url: './tiersIncluded:' + bundleId,
+      url: './tiersIncluded',
+      // url: './tiersIncluded:' + bundleId,
       datatype: 'json',
       success: (data) => {
         this.setState(data);
+        console.log('state updated', this.state);
       },
       error: (err) => {
         console.log('err',err);
