@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Tier from './components/tier.jsx';
 
-class Tiers extends React {
+class Tiers extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

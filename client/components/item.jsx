@@ -1,7 +1,7 @@
 import React from 'react';
 
-class Item extends React {
-  constructor(props) {
+class Item extends React.Component {
+  constructor(props) { //
     super(props);
     this.state = {
       itemId: 1,  // from Tiers
@@ -39,7 +39,7 @@ class Item extends React {
 
   render() {
     return (
-      <div classname="item-view">
+      <div className="item-view">
         WIP
       </div>
     )

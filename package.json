@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "",
     "seed": "node database/index.js",
     "react-dev": "webpack -d -watch",
     "server-dev": "nodemon server/index.js"

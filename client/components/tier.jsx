@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Item from './item.jsx';
 
-class Tier extends React {
+class Tier extends React.Component {
   constructor (props) {
     super (props);
     this.state = {
@@ -66,7 +66,5 @@ class Tier extends React {
     )
   }
 }
-
-ReactDOM.render(<Tier />, document.getElementById('Tier'));
 
 export default Tier;
