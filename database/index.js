@@ -21,46 +21,45 @@ var Tiers = sequelize.define('tiers', {
 });
 
 
-Bundles.drop()
-.then(() => {
-  Bundles.sync({ force: true })
-  .then(() => {
-    data = Seed.seedBundles();
-    // console.log('seedBundle', data);
-    Bundles.bulkCreate(data, { validate: true })
-    .then(() => {
-      console.log('bundles created');
-    })
-    .catch(err => {
-      console.log('failed to create bundles', err);
-    })
-    .finally(() => {
-      sequelize.close();
-    })
-  })
-});
+// Bundles.drop()
+// .then(() => {
+//   Bundles.sync({ force: true })
+//   .then(() => {
+//     data = Seed.seedBundles();
+//     Bundles.bulkCreate(data, { validate: true })
+//     .then(() => {
+//       console.log('bundles created');
+//     })
+//     .catch(err => {
+//       console.log('failed to create bundles', err);
+//     })
+//     .finally(() => {
+//       sequelize.close();
+//     })
+//   })
+// });
 
-Tiers.drop()
-.then(() => {
-  Tiers.sync({ force: true })
-  .then(() => {
-    data = Seed.seedTiers();
-    Tiers.bulkCreate(data, { validate: true})
-    .then(() => {
-      console.log('tiers created');
-    })
-    .catch(err => {
-      console.log('failed to create tiers', err);
-    })
-    .finally(() => {
-      sequelize.close();
-    })
-  })
-});
+// Tiers.drop()
+// .then(() => {
+//   Tiers.sync({ force: true })
+//   .then(() => {
+//     data = Seed.seedTiers();
+//     Tiers.bulkCreate(data, { validate: true})
+//     .then(() => {
+//       console.log('tiers created');
+//     })
+//     .catch(err => {
+//       console.log('failed to create tiers', err);
+//     })
+//     .finally(() => {
+//       sequelize.close();
+//     })
+//   })
+// });
 
 const tiersRequest = (data) => {
   let bundleId = data.bundleId;
-  Bundles.findAll({
+  return Bundles.findAll({
     where: {
       bundleId: bundleId
     }
@@ -72,7 +71,7 @@ const tiersRequest = (data) => {
 
 const itemsRequest = (data) => {
   let tierId = data.tierId;
-  Tiers.findAll({
+  return Tiers.findAll({
     where: {
       tierId: tierId
     }

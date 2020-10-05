@@ -1,26 +1,33 @@
 const express = require('express');
-const path = require('path');
+// const path = require('path');
 const bodyParser = require('body-parser');
 const app = express();
 
 const db = require('../database/index.js');
-const { Console } = require('console');
+// const { Console } = require('console');
 
-// app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
-// app.use(express.static(path.join(__dirname, '../dist/static/js/bundle.js')));
+app.use(bodyParser.urlencoded({ extended: true}));
+// app.use(express.static(path.join(__dirname, '/../dist/js/bundle.js')));
+app.use(express.static(__dirname + '/../dist/js/bundle.js'));
 
 const PORT = 3101;
 
+app.get('/test', (req, res) => {
+  console.log('got here');
+  res.status(200).send('test worked');
+})
+
 app.get('/tiersIncluded', (req, res) => {
-  const dataString = { tierId: 1 }; // for testing
+  const dataString = { bundleId: 1 };
   // const tiersData = db.tiersRequest(dataString);
-  db.tiersRequest(dataString)
+  return db.tiersRequest(dataString)
   .then(tiersData => {
+    // console.log('received db data: ', tiersData);
     if (tiersData) {
       return tiersData;
     } else {
-      res.status(404).send('no such tierId');
+      res.status(404).send('no such bundleId');
     }
   })
   .then(tiersData => {
@@ -35,14 +42,44 @@ app.get('/tiersIncluded', (req, res) => {
 
 app.get('/tiersIncluded:bundleId', (req, res) => {
   const dataString = req.params;
-  const tiersData = db.tiersRequest(dataString);
-  res.send(tiersData);
+  return db.tiersRequest(dataString)
+  .then(tiersData => {
+    // console.log('received db data: ', tiersData);
+    if (tiersData) {
+      return tiersData;
+    } else {
+      res.status(404).send('no such bundleId');
+    }
+  })
+  .then(tiersData => {
+    if (tiersData) {
+      res.send(JSON.stringify(tiersData));
+    }
+  })
+  .catch(err => {
+    res.status(500).send('wait and try again', err);
+  })
 });
 
 app.get('/itemsIncluded:tierId', (req, res) => {
   const dataString = req.params;
-  const itemsData = db.itemsRequest(dataString);
-  res.send(itemsData);
+  return db.itemsRequest(dataString)
+  .then(tiersData => {
+    // console.log('received db data: ', tiersData);
+    if (tiersData) {
+      return tiersData;
+    } else {
+      res.status(404).send('no such tierId');
+    }
+  })
+  .then(tiersData => {
+    if (tiersData) {
+      res.send(JSON.stringify(tiersData));
+    }
+  })
+  .catch(err => {
+    res.status(500).send('wait and try again', err);
+  })
 });
 
 app.listen(PORT, () => console.log('listening on port', PORT));
