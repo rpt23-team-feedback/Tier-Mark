@@ -84,4 +84,4 @@ const itemsRequest = (data) => {
 
 module.exports = {
   Bundles, Tiers, tiersRequest, itemsRequest
-}
+};

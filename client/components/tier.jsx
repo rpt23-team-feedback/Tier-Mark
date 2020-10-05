@@ -45,7 +45,7 @@ class Tier extends React.Component {
     let tierId = this.state.tier.tierId;
     $.ajax({
       method: 'GET',
-      url: './itemsIncluded',
+      url: '/itemsIncluded',
       // url: './itemsIncluded:' + tierId,
       datatype: 'json'
     })
