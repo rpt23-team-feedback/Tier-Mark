@@ -40,7 +40,7 @@ class Item extends React.Component {
   render() {
     return (
       <div className="item-view">
-        WIP
+        Item
       </div>
     )
   }

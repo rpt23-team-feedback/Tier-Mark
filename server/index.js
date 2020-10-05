@@ -6,7 +6,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(__dirname + '/../dist/static/js/bundle.js'));
+app.use(express.static(__dirname + '/../dist'));
 
 const PORT = 3101;
 
@@ -30,8 +30,8 @@ app.get('/tiersIncluded', (req, res) => {
   })
 });
 
-app.get('/tiersIncluded:bundleId', (req, res) => {
-  const dataString = req.params;
+app.get('/tiersIncluded/:bundleId', (req, res) => {
+  const dataString = req.params.bundleId;
   return db.tiersRequest(dataString)
   .then(tiersData => {
     if (tiersData) {
@@ -50,19 +50,19 @@ app.get('/tiersIncluded:bundleId', (req, res) => {
   })
 });
 
-app.get('/itemsIncluded:tierId', (req, res) => {
-  const dataString = req.params;
+app.get('/itemsIncluded/:tierId', (req, res) => {
+  const dataString = req.params.tierId;
   return db.itemsRequest(dataString)
-  .then(tiersData => {
-    if (tiersData) {
-      return tiersData;
+  .then(itemsData => {
+    if (itemsData) {
+      return itemsData;
     } else {
       res.status(404).send('no such tierId');
     }
   })
-  .then(tiersData => {
-    if (tiersData) {
-      res.send(JSON.stringify(tiersData));
+  .then(itemsData => {
+    if (itemsData) {
+      res.send(JSON.stringify(itemsData));
     }
   })
   .catch(err => {
