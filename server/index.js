@@ -6,9 +6,9 @@ const app = express();
 const db = require('../database/index.js');
 const { Console } = require('console');
 
-app.use(bodyParser.urlencoded({ extended: true}));
+// app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, '../dist/static/js/bundle.js')));
+// app.use(express.static(path.join(__dirname, '../dist/static/js/bundle.js')));
 
 const PORT = 3101;
 
