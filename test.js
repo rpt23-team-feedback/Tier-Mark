@@ -19,9 +19,7 @@ beforeAll(async () => {
   // await page.setViewport({ width, height });
 });
 afterAll(() => {
-  // db.close();
   // browser.close();
-  // done();
 });
 
 describe('Database seeds correctly', () => {
@@ -48,13 +46,9 @@ describe('Database seeds correctly', () => {
   });
 });
 
-describe('get tiers by module', () => {
+describe('Can get tiers by module', () => {
 
-  // beforeEach(async () => {
-  //   await page.goto(pageUrl, { waitUntil: 'networkIdle2' });
-  // });
-
-  test('', () => {
+  test('None of the tiers in a module are duplicated', () => {
     //
   });
 
@@ -63,13 +57,9 @@ describe('get tiers by module', () => {
   });
 });
 
-describe('get items by tier', () => {
+describe('Can get items by tier', () => {
 
-  // beforeEach(async () => {
-  //   await page.goto(pageUrl, { waitUntil: 'networkIdle2' });
-  // });
-
-  test('', () => {
+  test('None of the items in a tier are duplicated', () => {
     //
   });
 
@@ -78,6 +68,7 @@ describe('get items by tier', () => {
   });
 });
 
+/*
 describe('component displays correct tiers', () => {
 
   // beforeEach(async () => {
@@ -107,3 +98,4 @@ describe('component displays correct items', () => {
     //
   });
 });
+*/
