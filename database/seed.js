@@ -29,7 +29,6 @@ const seedBundles = () => {
       tierOrder: 3
     });
   }
-  // console.log('bundleData', bundleData);
   return bundleData;
 }
 

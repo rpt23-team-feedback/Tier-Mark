@@ -46,4 +46,3 @@ class Tiers extends React.Component {
 };
 
 ReactDOM.render(<Tiers />, document.getElementById('Tiers'));
-

@@ -10,6 +10,7 @@ app.use(express.static(__dirname + '/../dist'));
 
 const PORT = 3101;
 
+// This version is only used for dev testing
 app.get('/tiersIncluded', (req, res) => {
   const dataString = { bundleId: 1 };
   return db.tiersRequest(dataString)

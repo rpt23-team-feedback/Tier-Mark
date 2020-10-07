@@ -70,6 +70,9 @@ const tiersRequest = (data) => {
   .then(data => {
     return data;
   })
+  .catch(err => {
+    console.log('error', err);
+  })
 };
 
 const itemsRequest = (data) => {
@@ -81,6 +84,9 @@ const itemsRequest = (data) => {
   })
   .then(data => {
     return data;
+  })
+  .catch(err => {
+    console.log('error', err);
   })
 };
 
