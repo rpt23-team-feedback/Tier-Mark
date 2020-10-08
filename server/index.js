@@ -22,9 +22,7 @@ app.get('/tiersIncluded', (req, res) => {
     }
   })
   .then(tiersData => {
-    if (tiersData) {
-      res.send(JSON.stringify(tiersData));
-    }
+    res.send(JSON.stringify(tiersData));
   })
   .catch(err => {
     res.status(500).send('wait and try again', err);
@@ -42,9 +40,7 @@ app.get('/tiersIncluded/:bundleId', (req, res) => {
     }
   })
   .then(tiersData => {
-    if (tiersData) {
-      res.send(JSON.stringify(tiersData));
-    }
+    res.send(JSON.stringify(tiersData));
   })
   .catch(err => {
     res.status(500).send('wait and try again', err);
@@ -62,9 +58,7 @@ app.get('/itemsIncluded/:tierId', (req, res) => {
     }
   })
   .then(itemsData => {
-    if (itemsData) {
-      res.send(JSON.stringify(itemsData));
-    }
+    res.send(JSON.stringify(itemsData));
   })
   .catch(err => {
     res.status(500).send('wait and try again', err);

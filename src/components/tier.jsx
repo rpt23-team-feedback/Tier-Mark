@@ -40,9 +40,9 @@ class Tier extends React.Component {
   }
 
   componentDidMount() {
-    // this.setState({
-    //   tierId: this.props.tierId
-    // });
+    this.setState({
+      tierId: this.props.tierId
+    });
     // this.getTierData();
   }
 
@@ -66,9 +66,9 @@ class Tier extends React.Component {
     return (
       <div>
         <div className="item">
-          {/* Tier {this.state.tierId} */}
-          {/* <Item itemId={this.state.items.item1}/> */}
-          {/* <Item itemId={this.state.items.item2}/> */}
+          Tier {this.state.tierId}
+          <Item itemId={this.state.items.item1}/>
+          <Item itemId={this.state.items.item2}/>
         </div>
       </div>
     )
