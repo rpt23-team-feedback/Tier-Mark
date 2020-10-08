@@ -27,7 +27,6 @@ class Tiers extends React.Component {
       url: '/tiersIncluded',
       datatype: 'json',
       success: (data) => {
-        console.log(data);
         this.setState({
           tier1Id: data[0].tierId,
           tier2Id: data[1].tierId,
