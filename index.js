@@ -42,8 +42,8 @@ var Tiers = function (_React$Component) {
       var bundleId = this.bundleId;
       $.ajax({
         method: 'GET',
-        url: '/tiersIncluded',
-        // url: './tiersIncluded:' + bundleId,
+        // url: '/tiersIncluded',
+        url: './tiersIncluded:' + bundleId,
         datatype: 'json',
         success: function success(data) {
           _this2.setState(data);
