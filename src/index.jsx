@@ -28,9 +28,9 @@ class Tiers extends React.Component {
       datatype: 'json',
       success: (data) => {
         this.setState({
-        tier1Id: data[0].tierId,
-        tier2Id: data[1].tierId,
-        tier3Id: data[2].tierId
+          tier1Id: data[0].tierId,
+          tier2Id: data[1].tierId,
+          tier3Id: data[2].tierId
         });
       },
       error: (err) => {

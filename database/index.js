@@ -20,45 +20,43 @@ var Tiers = sequelize.define('tiers', {
   itemOrder: Sequelize.INTEGER
 });
 
-/*
-This code is not used in this build, but will be used in future builds so am commenting out for now.
-
-Bundles.drop()
-.then(() => {
-  Bundles.sync({ force: true })
+const seed = () => {
+  Bundles.drop()
   .then(() => {
-    data = Seed.seedBundles();
-    Bundles.bulkCreate(data, { validate: true })
+    Bundles.sync({ force: true })
     .then(() => {
-      console.log('bundles created');
+      data = Seed.seedBundles();
+      Bundles.bulkCreate(data, { validate: true })
+      .then(() => {
+        console.log('bundles created');
+      })
+      .catch(err => {
+        console.log('failed to create bundles', err);
+      })
+      .finally(() => {
+        sequelize.close();
+      })
     })
-    .catch(err => {
-      console.log('failed to create bundles', err);
-    })
-    .finally(() => {
-      sequelize.close();
-    })
-  })
-});
+  });
 
-Tiers.drop()
-.then(() => {
-  Tiers.sync({ force: true })
+  Tiers.drop()
   .then(() => {
-    data = Seed.seedTiers();
-    Tiers.bulkCreate(data, { validate: true})
+    Tiers.sync({ force: true })
     .then(() => {
-      console.log('tiers created');
+      data = Seed.seedTiers();
+      Tiers.bulkCreate(data, { validate: true})
+      .then(() => {
+        console.log('tiers created');
+      })
+      .catch(err => {
+        console.log('failed to create tiers', err);
+      })
+      .finally(() => {
+        sequelize.close();
+      })
     })
-    .catch(err => {
-      console.log('failed to create tiers', err);
-    })
-    .finally(() => {
-      sequelize.close();
-    })
-  })
-});
-*/
+  });
+};
 
 const tiersRequest = (data) => {
   let bundleId = data.bundleId;
@@ -91,5 +89,5 @@ const itemsRequest = (data) => {
 };
 
 module.exports = {
-  Bundles, Tiers, tiersRequest, itemsRequest
+  Bundles, Tiers, seed, tiersRequest, itemsRequest
 };

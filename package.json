@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "",
-    "test": "",
+    "test": "jest",
     "seed": "node database/index.js",
     "server-dev": "nodemon server/index.js",
     "react-dev": "webpack -d --watch"
@@ -23,6 +23,7 @@
   "dependencies": {
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
+    "babel-jest": "^26.5.2",
     "babel-preset-react": "^6.24.1",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
@@ -30,6 +31,7 @@
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.4",
+    "puppeteer": "^5.3.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "sequelize": "^6.3.5"

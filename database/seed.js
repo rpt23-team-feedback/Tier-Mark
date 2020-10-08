@@ -1,6 +1,5 @@
 const db = require('./index.js');
 
-
 // bundle
 // for each bundle 1-100
 // 3 random tiers
