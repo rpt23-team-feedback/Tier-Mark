@@ -28,43 +28,81 @@ describe('Database seeds correctly', () => {
     return db.tiersRequest({ bundleId: 1 })
     .then(results => {
       expect (results.length).toBe(3);
-    });
+    })
+    .catch(err => {
+      console.log('error: ', err);
+    })
   });
 
   test('Does not generate less than 2 items in a tier', () => {
     return db.itemsRequest({ tierId: 1 })
     .then(results => {
       expect(results.length).toBeGreaterThan(1);
-    });
+    })
+    .catch(err => {
+      console.log('error: ', err);
+    })
   });
 
   test('Does not generate more than 6 items in a tier', () => {
     return db.itemsRequest({ tierId: 1 })
     .then(results => {
       expect(results.length).toBeLessThan(7);
-    });
+    })
+    .catch(err => {
+      console.log('error: ', err);
+    })
   });
 });
 
 describe('Can get tiers by module', () => {
 
   test('None of the tiers in a module are duplicated', () => {
-    //
+    return db.tiersRequest({ bundleId: 1})
+    .then(results => {
+      let unequal = (results[0].tierId !== results[1].tierId && results[0].tierId !== results[2].tierId && results[1].tierId !== results[2].tierId);
+      expect(unequal).toBe(true);
+    })
+    .catch(err => {
+      console.log('error: ', err);
+    })
   });
 
-  test('', () => {
-    //
+  test('Tiers do not appear out of order', () => {
+    return db.tiersRequest({ bundleId: 1 })
+    .then(results => {
+      let correctOrder = [1, 2, 3];
+      let retrievedOrder = [results[0].tierOrder, results[1].tierOrder, results[2].tierOrder];
+      let orderCheck = (correctOrder[0] === retrievedOrder[0] && correctOrder[1] === retrievedOrder[1] && correctOrder[2] === retrievedOrder[2]);
+      expect(orderCheck).toBe(true);
+    })
+    .catch(err => {
+      console.log('error: ', err);
+    })
   });
 });
 
 describe('Can get items by tier', () => {
 
   test('None of the items in a tier are duplicated', () => {
-    //
+    return db.itemsRequest({ tierId: 1})
+    .then(results => {
+      let unequal = (results[0].itemId !== results[1].itemId && results[0].itemId !== results[2].itemId && results[1].itemId !== results[2].itemId);
+      expect(unequal).toBe(true);
+    })
+    .catch(err => {
+      console.log('error: ', err);
+    })
   });
 
-  test('', () => {
-    //
+  test('There are not an inappropriate number of items in a tier', () => {
+    return db.itemsRequest({ tierId: 1 })
+    .then(results => {
+      expect(results.length).toBeGreaterThan(1) && expect(results.length).toBeLessThan(7);
+    })
+    .catch(err => {
+      console.log('error: ', err);
+    })
   });
 });
 
