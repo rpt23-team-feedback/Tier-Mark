@@ -60,7 +60,10 @@ describe('Can get tiers by module', () => {
   test('None of the tiers in a module are duplicated', () => {
     return db.tiersRequest({ bundleId: 1})
     .then(results => {
-      let unequal = (results[0].tierId !== results[1].tierId && results[0].tierId !== results[2].tierId && results[1].tierId !== results[2].tierId);
+      let unequal = (
+        (results[0].tierId !== results[1].tierId) &&
+        (results[0].tierId !== results[2].tierId) &&
+        (results[1].tierId !== results[2].tierId));
       expect(unequal).toBe(true);
     })
     .catch(err => {
@@ -72,8 +75,16 @@ describe('Can get tiers by module', () => {
     return db.tiersRequest({ bundleId: 1 })
     .then(results => {
       let correctOrder = [1, 2, 3];
-      let retrievedOrder = [results[0].tierOrder, results[1].tierOrder, results[2].tierOrder];
-      let orderCheck = (correctOrder[0] === retrievedOrder[0] && correctOrder[1] === retrievedOrder[1] && correctOrder[2] === retrievedOrder[2]);
+      let retrievedOrder = [
+        results[0].tierOrder,
+        results[1].tierOrder,
+        results[2].tierOrder
+      ];
+      let orderCheck = (
+        (correctOrder[0] === retrievedOrder[0]) &&
+        (correctOrder[1] === retrievedOrder[1]) &&
+        (correctOrder[2] === retrievedOrder[2])
+      );
       expect(orderCheck).toBe(true);
     })
     .catch(err => {
@@ -87,7 +98,11 @@ describe('Can get items by tier', () => {
   test('None of the items in a tier are duplicated', () => {
     return db.itemsRequest({ tierId: 1})
     .then(results => {
-      let unequal = (results[0].itemId !== results[1].itemId && results[0].itemId !== results[2].itemId && results[1].itemId !== results[2].itemId);
+      let unequal = (
+        (results[0].itemId !== results[1].itemId) &&
+        (results[0].itemId !== results[2].itemId) &&
+        (results[1].itemId !== results[2].itemId)
+      );
       expect(unequal).toBe(true);
     })
     .catch(err => {
