@@ -1,26 +1,30 @@
-const puppeteer = require('puppeteer');
-const pageUrl = "http://localhost:3101/";
+// const puppeteer = require('puppeteer');
+// const pageUrl = "http://localhost:3101/";
 const db = require('./database/index.js');
 
-let page;
-let browser;
+/*
+Not currently used, will need for future testing
+let page, browser;
 const width = 1200;
 const height = 700;
+*/
 
+/*
+Not currently used, will need for future testing
 beforeAll(async () => {
-  // db.seed();
-
-  // browser = await puppeteer.launch({
-  //   headless: false,
-  //   slowMo: 80,
-  //   args: ['--window-size=${width}, ${height}']
-  // });
-  // page = await browser.newPage();
-  // await page.setViewport({ width, height });
+  browser = await puppeteer.launch({
+    headless: false,
+    slowMo: 80,
+    args: ['--window-size=${width}, ${height}']
+  });
+  page = await browser.newPage();
+  await page.setViewport({ width, height });
 });
+
 afterAll(() => {
   // browser.close();
 });
+*/
 
 describe('Database seeds correctly', () => {
 
@@ -71,25 +75,9 @@ describe('Can get tiers by module', () => {
     })
   });
 
-  test('Tiers do not appear out of order', () => {
-    return db.tiersRequest({ bundleId: 1 })
-    .then(results => {
-      let correctOrder = [1, 2, 3];
-      let retrievedOrder = [
-        results[0].tierOrder,
-        results[1].tierOrder,
-        results[2].tierOrder
-      ];
-      let orderCheck = (
-        (correctOrder[0] === retrievedOrder[0]) &&
-        (correctOrder[1] === retrievedOrder[1]) &&
-        (correctOrder[2] === retrievedOrder[2])
-      );
-      expect(orderCheck).toBe(true);
-    })
-    .catch(err => {
-      console.log('error: ', err);
-    })
+  test('Unused', () => {
+    // TODO
+    // Add new test here, previous was not useful
   });
 });
 
@@ -110,10 +98,11 @@ describe('Can get items by tier', () => {
     })
   });
 
-  test('There are not an inappropriate number of items in a tier', () => {
+  test('There are not less than 2 or more than 6 items in a tier', () => {
     return db.itemsRequest({ tierId: 1 })
     .then(results => {
-      expect(results.length).toBeGreaterThan(1) && expect(results.length).toBeLessThan(7);
+      expect(results.length).toBeGreaterThan(1) &&
+        expect(results.length).toBeLessThan(7);
     })
     .catch(err => {
       console.log('error: ', err);

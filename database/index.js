@@ -3,7 +3,7 @@ const mysqlConfig = require('./config.js');
 const { Sequelize } = require('sequelize');
 const { user } = require('./config.js');
 const sequelize = new Sequelize('humblebundle', 'root', '', { host: 'localhost', dialect: 'mysql'});
-// const Seed = require('./seed.js'); // Not used in this build, will be reimplemented
+const Seed = require('./seed.js'); // Not used in this build, will be reimplemented
 
 const connection = mysql.createConnection(mysqlConfig);
 

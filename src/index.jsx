@@ -10,7 +10,7 @@ class Tiers extends React.Component {
       bundleId: 1,
       tier1Id: 1,
       tier2Id: 2,
-      tier3Id: 3
+      tier3Id: 3,
     }
     this.getBundleData = this.getBundleData.bind(this);
   }
