@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "",
-    "test": "",
+    "test": "jest --detectOpenHandles",
     "seed": "node database/index.js",
     "server-dev": "nodemon server/index.js",
     "react-dev": "webpack -d --watch"
@@ -21,22 +21,24 @@
   },
   "homepage": "https://github.com/theofficetroll/Tier-Mark#readme",
   "dependencies": {
-    "babel": "^6.23.0",
-    "babel-cli": "^6.26.0",
-    "babel-preset-react": "^6.24.1",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "jquery": "^3.5.1",
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.4",
+    "puppeteer": "^5.3.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "sequelize": "^6.3.5"
   },
   "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-jest": "^26.5.2",
     "babel-loader": "^7.1.5",
     "babel-preset-react-app": "^3.1.2",
+    "babel-preset-react": "^6.24.1",
     "jest": "^26.4.2",
     "react-hot-loader": "^4.13.0",
     "webpack": "^4.44.2",

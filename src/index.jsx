@@ -10,7 +10,7 @@ class Tiers extends React.Component {
       bundleId: 1,
       tier1Id: 1,
       tier2Id: 2,
-      tier3Id: 3
+      tier3Id: 3,
     }
     this.getBundleData = this.getBundleData.bind(this);
   }
@@ -20,7 +20,7 @@ class Tiers extends React.Component {
   }
 
   getBundleData() {
-    let bundleId = this.bundleId;
+    let bundleId = this.state.bundleId;
     $.ajax({
       method: 'GET',
       // url: '/tiersIncluded/:' + bundleId,
@@ -28,9 +28,9 @@ class Tiers extends React.Component {
       datatype: 'json',
       success: (data) => {
         this.setState({
-        tier1Id: data[0].tierId,
-        tier2Id: data[1].tierId,
-        tier3Id: data[2].tierId
+          tier1Id: data[0].tierId,
+          tier2Id: data[1].tierId,
+          tier3Id: data[2].tierId
         });
       },
       error: (err) => {
