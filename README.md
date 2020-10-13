@@ -7,6 +7,27 @@ Tier module for HumbleBundle clone
 > To start server, from root directory in Terminal: "npm run server-dev"
 > To run tests, in Terminal: "npm run test"
 
+> API Call
+Routing for API calls should be as follows and on PORT 3101:
+
+To retrieve Tiers within a given Module:
+'./tiersIncluded/:bundleId'
+Will return an an array of objects
+[
+  { tierId, cost, tierOrder },
+  { tierId, cost, tierOrder },
+  { tierId, cost, tierOrder }
+]
+
+To retrieve Iterms within a given Tier:
+'./itemsIncluded/:tierId'
+Will return an array of objects
+[
+  { itemId, itemOrder },
+  ...
+  { itemId, itemOrder }
+]
+
 ## Requirements
 
 - Express 4.17.1
