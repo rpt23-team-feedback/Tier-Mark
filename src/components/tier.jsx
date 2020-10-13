@@ -6,34 +6,15 @@ class Tier extends React.Component {
   constructor (props) {
     super (props);
     this.state = {
-      // Some of this will move to Item component
-      // But I want all of it together so I can easily see it all at once
       tierId: 1,  // from this service
       tierCost: 1,  // minimum cost
       items: {
-        item1: {
-          itemId: 1,  // from Tiers
-          itemName: 'game 1', // from Item service
-          itemImage: '',  // from Item service
-          availability: '', // from System Requirements service
-          feedback: {
-            positiveReviews: 90,  // from Reviews service
-            numberOfReviews: 526, // from Reviews service
-            reviewsFrom: 'Steam'  // from Reviews service
-          }
-        },
-        item2: {
-          itemId: 2,  // from this service
-          itemName: 'game 2', // from Item service
-          itemImage: '',  // from Item service
-          availability: '', // from System Requirements service
-          feedback: {
-            positiveReviews: 76,  // from Reviews service
-            numberOfReviews: 9652, // from Reviews service
-            reviewsFrom: 'Steam'  // from Reviews service
-          }
-        }
-        // Will need to extend to max number of items later
+        item1: 1,
+        item2: 2,
+        item3: 3,
+        item4: 4,
+        item5: 5,
+        item6: 6
       }
     }
     this.getTierData = this.getTierData.bind();
@@ -63,12 +44,21 @@ class Tier extends React.Component {
 
 
   render() {
+
+    const items = this.state.items;
+
+    let itemsArray = [];
+
+    for (let key in items) {
+      let itemId = items[key];
+      itemsArray.push(<Item key={itemId} itemId={itemId}/>)
+    }
+
     return (
       <div>
-        <div className="tier ${this.state.tierId">
+        <div className="tier ${this.state.tierId}">
           Tier {this.state.tierId}
-          <Item itemId={this.state.items.item1}/>
-          <Item itemId={this.state.items.item2}/>
+          {itemsArray}
         </div>
       </div>
     )
