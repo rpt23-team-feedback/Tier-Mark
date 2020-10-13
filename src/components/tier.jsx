@@ -17,14 +17,14 @@ class Tier extends React.Component {
         item6: 6
       }
     }
-    this.getTierData = this.getTierData.bind();
+    this.getTierData = this.getTierData.bind(this);
   }
 
   componentDidMount() {
     this.setState({
       tierId: this.props.tierId
     });
-    // this.getTierData();
+    this.getTierData();
   }
 
   getTierData() {
@@ -34,7 +34,11 @@ class Tier extends React.Component {
       url: '/itemsIncluded/' + tierId,
       datatype: 'json',
       success: (data) => {
-        this.setState(data);
+        for (let i = 0; i < data.length; i++) {
+          this.setState({
+            itemId: data[0].itemId,
+          })
+        }
       },
       error: (err) => {
         console.log('err', err);
