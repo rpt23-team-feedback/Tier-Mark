@@ -30,7 +30,7 @@ app.get('/tiersIncluded', (req, res) => {
 });
 
 app.get('/tiersIncluded/:bundleId', (req, res) => {
-  const dataString = req.params.bundleId;
+  const dataString = req.params;
   return db.tiersRequest(dataString)
   .then(tiersData => {
     if (tiersData) {
@@ -48,7 +48,7 @@ app.get('/tiersIncluded/:bundleId', (req, res) => {
 });
 
 app.get('/itemsIncluded/:tierId', (req, res) => {
-  const dataString = req.params.tierId;
+  const dataString = req.params;
   return db.itemsRequest(dataString)
   .then(itemsData => {
     if (itemsData) {
