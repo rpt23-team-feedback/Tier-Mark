@@ -51,7 +51,7 @@ class Tier extends React.Component {
 
     for (let key in items) {
       let itemId = items[key];
-      itemsArray.push(<Item itemId={itemId}/>)
+      itemsArray.push(<Item key={itemId} itemId={itemId}/>)
     }
 
     return (
