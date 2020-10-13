@@ -1,6 +1,6 @@
 // const puppeteer = require('puppeteer');
 // const pageUrl = "http://localhost:3101/";
-const db = require('./database/index.js');
+const db = require('./../database/index.js');
 
 /*
 Not currently used, will need for future testing
