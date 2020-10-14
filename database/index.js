@@ -59,7 +59,6 @@ const seed = () => {
 };
 
 const tiersRequest = (data) => {
-  console.log(data);  // TESTING ONLY
   let bundleId = data.bundleId;
   return Bundles.findAll({
     where: {
