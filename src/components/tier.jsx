@@ -1,7 +1,7 @@
 import React from 'react';
 import Item from './item.jsx';
 import $ from 'jquery';
-import './item.css';
+import './tier.css';
 
 class Tier extends React.Component {
   constructor (props) {
