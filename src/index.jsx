@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Tier from './components/tier.jsx';
 import $ from 'jquery';
+import './index.css';
 
 class Tiers extends React.Component {
   constructor(props) {
@@ -40,7 +41,7 @@ class Tiers extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="Tiers-container">
         <Tier tierId={this.state.tier1Id}/>
         <Tier tierId={this.state.tier2Id}/>
         <Tier tierId={this.state.tier3Id}/>

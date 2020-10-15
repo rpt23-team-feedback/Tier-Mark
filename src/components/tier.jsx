@@ -1,6 +1,7 @@
 import React from 'react';
 import Item from './item.jsx';
 import $ from 'jquery';
+import './tier.css';
 
 class Tier extends React.Component {
   constructor (props) {
@@ -60,7 +61,7 @@ class Tier extends React.Component {
 
     return (
       <div>
-        <div className="tier ${this.state.tierId}">
+        <div className="tier">
           Tier {this.state.tierId}
           {itemsArray}
         </div>
