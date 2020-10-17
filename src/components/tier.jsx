@@ -64,7 +64,7 @@ class Tier extends React.Component {
 
     return (
       <div>
-        <div key="this.props.tierId" className="tier">
+        <div key={this.props.tierId} className="tier">
           Tier {this.state.tierId}
           {/* {itemsArray} */}
         </div>

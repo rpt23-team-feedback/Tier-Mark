@@ -18,7 +18,7 @@ app.get('/tiersIncluded', (req, res) => {
     if (tiersData) {
       return tiersData;
     } else {
-      res.status(404).send('no such bundleId');
+      res.status(404);
     }
   })
   .then(data => {
@@ -30,7 +30,7 @@ app.get('/tiersIncluded', (req, res) => {
     res.json(tiersData);
   })
   .catch(err => {
-    res.status(500).send('wait and try again', err);
+    res.status(500);
   })
 });
 
@@ -54,7 +54,7 @@ app.get('/tiersIncluded/:bundleId', (req, res) => {
     res.json(tiersData);
   })
   .catch(err => {
-    res.status(500).send('wait and try again', err);
+    res.status(500);
   })
 });
 
@@ -65,7 +65,7 @@ app.get('/itemsIncluded/:tierId', (req, res) => {
     if (itemsData) {
       return itemsData;
     } else {
-      res.status(404).send('no such tierId');
+      res.status(404);
     }
   })
   .then(data => {
@@ -80,7 +80,7 @@ app.get('/itemsIncluded/:tierId', (req, res) => {
     res.json(itemsData);
   })
   .catch(err => {
-    res.status(500).send('wait and try again', err);
+    res.status(500);
   })
 });
 
