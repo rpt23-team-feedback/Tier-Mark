@@ -51,11 +51,11 @@ class Item extends React.Component {
     return (
       <div className="item-view">
         ItemId: {this.state.itemId} <br/>
-        Name: {this.state.itemName} <br/>
+        {/* Name: {this.state.itemName} <br/>
         Systems: {this.state.availability} <br/>
         Good Reviews: {this.state.feedback.positiveReviews}% <br/>
         Total Reviews: {this.state.feedback.numberOfReviews} <br/>
-        Reviews From: {this.state.feedback.reviewsFrom} <br/>
+        Reviews From: {this.state.feedback.reviewsFrom} <br/> */}
       </div>
     )
   }

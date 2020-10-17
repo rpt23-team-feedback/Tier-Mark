@@ -21,16 +21,18 @@ class Tiers extends React.Component {
   }
 
   getBundleData() {
-    let bundleId = this.state.bundleId;
+    var url = new URL(window.location);
+    var bundleId = url.searchParams.get('bundle');
     $.ajax({
       method: 'GET',
       url: '/tiersIncluded/' + bundleId,
       datatype: 'json',
       success: (data) => {
         this.setState({
-          tier1Id: data[0].tierId,
-          tier2Id: data[1].tierId,
-          tier3Id: data[2].tierId
+          bundleId: bundleId,
+          tier1Id: data.tier1Id,
+          tier2Id: data.tier2Id,
+          tier3Id: data.tier3Id,
         });
       },
       error: (err) => {
@@ -42,9 +44,10 @@ class Tiers extends React.Component {
   render() {
     return (
       <div className="Tiers-container">
-        <Tier tierId={this.state.tier1Id}/>
-        <Tier tierId={this.state.tier2Id}/>
-        <Tier tierId={this.state.tier3Id}/>
+        Bundle {this.state.bundleId}
+        <Tier key={this.state.tier1Id} tierId={this.state.tier1Id}/>
+        <Tier key={this.state.tier2Id} tierId={this.state.tier2Id}/>
+        <Tier key={this.state.tier3Id} tierId={this.state.tier3Id}/>
       </div>
     )
   }

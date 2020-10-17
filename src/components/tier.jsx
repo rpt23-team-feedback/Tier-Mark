@@ -7,7 +7,7 @@ class Tier extends React.Component {
   constructor (props) {
     super (props);
     this.state = {
-      tierId: 1,  // from this service
+      tierId: this.props.tierId,  // from this service
       tierCost: 1,  // minimum cost
       items: {
         item1: 1,
@@ -30,6 +30,7 @@ class Tier extends React.Component {
 
   getTierData() {
     let tierId = this.state.tierId;
+    console.log(tierId);
     $.ajax({
       method: 'GET',
       url: '/itemsIncluded/' + tierId,
@@ -37,9 +38,11 @@ class Tier extends React.Component {
       success: (data) => {
         for (let i = 0; i < data.length; i++) {
           this.setState({
-            itemId: data[0].itemId,
+            item1: data.item1,
+            item2: data.item2,
           })
         }
+        console.log('new state:', this.state);
       },
       error: (err) => {
         console.log('err', err);
@@ -61,9 +64,9 @@ class Tier extends React.Component {
 
     return (
       <div>
-        <div className="tier">
+        <div key={this.props.tierId} className="tier">
           Tier {this.state.tierId}
-          {itemsArray}
+          {/* {itemsArray} */}
         </div>
       </div>
     )
