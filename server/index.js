@@ -21,8 +21,13 @@ app.get('/tiersIncluded', (req, res) => {
       res.status(404).send('no such bundleId');
     }
   })
-  .then(tiersData => {
-    res.send(JSON.stringify(tiersData));
+  .then(data => {
+    let tiersData = {
+      tier1Id: data[0].tierId,
+      tier2Id: data[1].tierId,
+      tier3Id: data[2].tierId
+    }
+    res.json(tiersData);
   })
   .catch(err => {
     res.status(500).send('wait and try again', err);
@@ -39,8 +44,14 @@ app.get('/tiersIncluded/:bundleId', (req, res) => {
       res.status(404).send('no such bundleId');
     }
   })
-  .then(tiersData => {
-    res.send(JSON.stringify(tiersData));
+  .then(data => {
+    console.log('tier 1', data[0].dataValues.tierId);
+    let tiersData = {
+      tier1Id: data[0].dataValues.tierId,
+      tier2Id: data[1].dataValues.tierId,
+      tier3Id: data[2].dataValues.tierId
+    }
+    res.json(tiersData);
   })
   .catch(err => {
     res.status(500).send('wait and try again', err);
@@ -57,8 +68,16 @@ app.get('/itemsIncluded/:tierId', (req, res) => {
       res.status(404).send('no such tierId');
     }
   })
-  .then(itemsData => {
-    res.send(JSON.stringify(itemsData));
+  .then(data => {
+    let itemsData = {
+      item1: data[0].dataValues.itemId,
+      item2: data[1].dataValues.itemId,
+      item3: data[2].dataValues.itemId,
+      item4: data[3].dataValues.itemId,
+      item5: data[4].dataValues.itemId,
+      item6: data[5].dataValues.itemId,
+    }
+    res.json(itemsData);
   })
   .catch(err => {
     res.status(500).send('wait and try again', err);
