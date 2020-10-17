@@ -30,6 +30,7 @@ class Tier extends React.Component {
 
   getTierData() {
     let tierId = this.state.tierId;
+    console.log(tierId);
     $.ajax({
       method: 'GET',
       url: '/itemsIncluded/' + tierId,
@@ -65,7 +66,7 @@ class Tier extends React.Component {
       <div>
         <div key="this.props.tierId" className="tier">
           Tier {this.state.tierId}
-          {itemsArray}
+          {/* {itemsArray} */}
         </div>
       </div>
     )
