@@ -73,10 +73,7 @@ app.get('/itemsIncluded/:tierId', (req, res) => {
     let itemsData = {
       item1: data[0].dataValues.itemId,
       item2: data[1].dataValues.itemId,
-      item3: data[2].dataValues.itemId,
-      item4: data[3].dataValues.itemId,
     }
-    console.log('items to return', itemsData);
     res.json(itemsData);
   })
   .catch(err => {
