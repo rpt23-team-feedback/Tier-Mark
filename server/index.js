@@ -66,7 +66,7 @@ app.get('/itemsIncluded/:tierId', (req, res) => {
     if (itemsData) {
       return itemsData;
     } else {
-      res.status(404);
+      res.send(404).send('no such TierId');
     }
   })
   .then(data => {
@@ -75,12 +75,12 @@ app.get('/itemsIncluded/:tierId', (req, res) => {
       item2: data[1].dataValues.itemId,
       item3: data[2].dataValues.itemId,
       item4: data[3].dataValues.itemId,
-      item5: data[4].dataValues.itemId,
-      item6: data[5].dataValues.itemId,
     }
+    console.log('items to return', itemsData);
     res.json(itemsData);
   })
   .catch(err => {
+    console.log('got caught?', err);
     res.status(500);
   })
 });
