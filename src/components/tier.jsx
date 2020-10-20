@@ -12,10 +12,6 @@ class Tier extends React.Component {
       items: {
         item1: 1,
         item2: 2,
-        item3: 3,
-        item4: 4,
-        item5: 5,
-        item6: 6
       }
     }
     this.getTierData = this.getTierData.bind(this);
@@ -23,7 +19,7 @@ class Tier extends React.Component {
 
   componentDidMount() {
     this.setState({
-      tierId: this.props.tierId
+      tierId: this.props.tierId,
     });
     this.getTierData();
   }
@@ -35,12 +31,12 @@ class Tier extends React.Component {
       url: 'http://localhost:3101/itemsIncluded/' + tierId,
       datatype: 'json',
       success: (data) => {
-        for (let i = 0; i < data.length; i++) {
-          this.setState({
+        this.setState({
+          items: {
             item1: data.item1,
             item2: data.item2,
-          })
-        }
+          }
+        })
       },
       error: (err) => {
         console.log('err', err);
@@ -51,7 +47,7 @@ class Tier extends React.Component {
 
   render() {
 
-    const items = this.state.items;
+    let items = this.state.items;
 
     let itemsArray = [];
 
@@ -61,11 +57,10 @@ class Tier extends React.Component {
     }
 
     return (
-      <div>
-        <div key={this.props.tierId} className="tier">
-          Tier {this.state.tierId}
-          {/* {itemsArray} */}
-        </div>
+      <div key={this.props.tierId} className="tier">
+        Tier {this.state.tierId}
+        {itemsArray}
+        {/* <Item key={this.state.items.item1} itemId={this.state.items.item1}/> */}
       </div>
     )
   }

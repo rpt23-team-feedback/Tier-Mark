@@ -5,7 +5,7 @@ class Item extends React.Component {
   constructor(props) { //
     super(props);
     this.state = {
-      itemId: 1,  // passed down via props
+      itemId: this.props.itemId,
       itemName: 'game 1', // from Item service
       itemImage: '',  // from Item service
       availability: '', // from System Requirements service
@@ -50,12 +50,14 @@ class Item extends React.Component {
   render() {
     return (
       <div className="item-view">
-        ItemId: {this.state.itemId} <br/>
-        {/* Name: {this.state.itemName} <br/>
-        Systems: {this.state.availability} <br/>
-        Good Reviews: {this.state.feedback.positiveReviews}% <br/>
-        Total Reviews: {this.state.feedback.numberOfReviews} <br/>
-        Reviews From: {this.state.feedback.reviewsFrom} <br/> */}
+        <div key={this.props.itemId} className="item">
+          ItemId: {this.props.itemId} <br/>
+          {/* Name: {this.state.itemName} <br/>
+          Systems: {this.state.availability} <br/>
+          Good Reviews: {this.state.feedback.positiveReviews}% <br/>
+          Total Reviews: {this.state.feedback.numberOfReviews} <br/>
+          Reviews From: {this.state.feedback.reviewsFrom} <br/> */}
+        </div>
       </div>
     )
   }

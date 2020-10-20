@@ -43,7 +43,7 @@ class Tiers extends React.Component {
 
   render() {
     return (
-      <div className="Tiers-container">
+      <div className="tiers-container">
         Bundle {this.state.bundleId}
         <Tier key={this.state.tier1Id} tierId={this.state.tier1Id}/>
         <Tier key={this.state.tier2Id} tierId={this.state.tier2Id}/>

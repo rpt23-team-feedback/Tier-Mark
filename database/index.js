@@ -75,6 +75,7 @@ const tiersRequest = (data) => {
 
 const itemsRequest = (data) => {
   let tierId = data.tierId;
+  // let tierId = '1';
   return Tiers.findAll({
     where: {
       tierId: tierId
