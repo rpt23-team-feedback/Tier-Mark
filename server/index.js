@@ -1,12 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('../database/index.js');
+const cors = require('cors');
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/../dist'));
+app.use(cors());
 
 const PORT = 3101;
 
@@ -45,7 +47,6 @@ app.get('/tiersIncluded/:bundleId', (req, res) => {
     }
   })
   .then(data => {
-    console.log('tier 1', data[0].dataValues.tierId);
     let tiersData = {
       tier1Id: data[0].dataValues.tierId,
       tier2Id: data[1].dataValues.tierId,

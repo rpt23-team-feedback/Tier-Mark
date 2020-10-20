@@ -25,7 +25,7 @@ class Tiers extends React.Component {
     var bundleId = url.searchParams.get('bundle');
     $.ajax({
       method: 'GET',
-      url: '/tiersIncluded/' + bundleId,
+      url: 'http://localhost:3101/tiersIncluded/' + bundleId,
       datatype: 'json',
       success: (data) => {
         this.setState({
