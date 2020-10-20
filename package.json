@@ -6,7 +6,7 @@
   "scripts": {
     "start": "",
     "test": "jest --detectOpenHandles",
-    "seed": "node database/index.js",
+    "seed": "node database/seed.js",
     "server-dev": "nodemon server/index.js",
     "react-dev": "webpack -d --watch"
   },
