@@ -4,7 +4,7 @@ const db = require('./index.js');
 // for each bundle 1-100
 // 3 random tiers
 // random cost 5-20
-function seedBundles() {
+const seedBundles = () => {
   var bundleId, tierId1, tierId2, tierId3, cost;
   var bundleData = [];
   for (let i = 0; i <= 99; i++) {
@@ -35,7 +35,7 @@ function seedBundles() {
 // 2 - 6 items for each
 // each item should come from different segment
 
-function seedTiers() {
+const seedTiers = () => {
   var tierId, itemId;
   var tierData = [];
   for (let i = 1; i <= 300; i++) {

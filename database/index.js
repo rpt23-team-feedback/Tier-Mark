@@ -51,5 +51,5 @@ const itemsRequest = (data) => {
 };
 
 module.exports = {
-  Bundles, Tiers, sequelize, tiersRequest, itemsRequest
+  Bundles, Tiers, tiersRequest, itemsRequest
 };
