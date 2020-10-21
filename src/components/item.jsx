@@ -1,5 +1,8 @@
 import React from 'react';
 import './item.css';
+import $ from 'jquery';
+
+const itemDetailsUrl = 'http://localhost:3200/';
 
 class Item extends React.Component {
   constructor(props) { //
@@ -30,7 +33,21 @@ class Item extends React.Component {
   }
 
   getItem() {
-    // This will call out to Item service
+    let itemId = this.state.itemId;
+    $.ajax({
+      method: 'GET',
+      url: itemDetailsUrl + 'single/' + itemId,
+      datatype: 'json',
+      success: (data) => {
+        console.log('game data received', data);
+        this.setState({
+          //
+        })
+      },
+      error: (err) => {
+        console.log('err', err);
+      }
+    })
 
     // Fake data generator in case Item service unresponsive
   }
@@ -52,11 +69,11 @@ class Item extends React.Component {
       <div className="item-view">
         <div key={this.props.itemId} className="item">
           ItemId: {this.props.itemId} <br/>
-          {/* Name: {this.state.itemName} <br/>
-          Systems: {this.state.availability} <br/>
-          Good Reviews: {this.state.feedback.positiveReviews}% <br/>
-          Total Reviews: {this.state.feedback.numberOfReviews} <br/>
-          Reviews From: {this.state.feedback.reviewsFrom} <br/> */}
+          {/* Name: {this.state.itemName} <br/> */}
+          {/* Systems: {this.state.availability} <br/> */}
+          {/* Good Reviews: {this.state.feedback.positiveReviews}% <br/> */}
+          {/* Total Reviews: {this.state.feedback.numberOfReviews} <br/> */}
+          {/* Reviews From: {this.state.feedback.reviewsFrom} <br/> */}
         </div>
       </div>
     )
