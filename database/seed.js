@@ -16,16 +16,16 @@ const seedBundles = () => {
     bundleData.push({
       bundleId: bundleId,
       tierId: tierId1,
-      tierOrder: 1
+      tierOrder: 1,
     }, {
       bundleId: bundleId,
       tierId: tierId2,
       cost: cost,
-      tierOrder: 2
+      tierOrder: 2,
     }, {
       bundleId: bundleId,
       tierId: tierId3,
-      tierOrder: 3
+      tierOrder: 3,
     });
   }
   return bundleData;
@@ -45,20 +45,20 @@ const seedTiers = () => {
     tierData.push({
       tierId: tierId,
       itemId: itemId,
-      itemOrder: tierOrder += 1
+      itemOrder: tierOrder += 1,
     });
     itemId = Math.floor(Math.random() * 48) + 49;
     tierData.push({
       tierId: tierId,
       itemId: itemId,
-      itemOrder: tierOrder += 1
+      itemOrder: tierOrder += 1,
     });
     if (Math.random() < .3) {
       itemId = Math.floor(Math.random() * 48) + 97;
       tierData.push({
         tierId: tierId,
         itemId: itemId,
-        itemOrder: tierOrder += 1
+        itemOrder: tierOrder += 1,
       });
     }
     if (Math.random() < .3) {
@@ -66,7 +66,7 @@ const seedTiers = () => {
       tierData.push({
         tierId: tierId,
         itemId: itemId,
-        itemOrder: tierOrder += 1
+        itemOrder: tierOrder += 1,
       });
     }
     if (Math.random() < .3) {
@@ -74,7 +74,7 @@ const seedTiers = () => {
       tierData.push({
         tierId: tierId,
         itemId: itemId,
-        itemOrder: tierOrder += 1
+        itemOrder: tierOrder += 1,
       });
     }
     if (Math.random() < .3) {
@@ -82,7 +82,7 @@ const seedTiers = () => {
       tierData.push({
         tierId: tierId,
         itemId: itemId,
-        itemOrder: tierOrder += 1
+        itemOrder: tierOrder += 1,
       });
     }
   }
