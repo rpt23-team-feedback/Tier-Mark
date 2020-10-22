@@ -61,11 +61,11 @@ class Tier extends React.Component {
     }
 
     if (this.state.tierType === "1") {
-      costText = "Pay $1 to unlock!";
+      costText = "PAY $1 TO UNLOCK!";
     } else if (this.state.tierType === "2") {
-      costText = "Pay $" + this.state.tierCost + " or more to unlock!";
+      costText = "PAY $" + this.state.tierCost + " OR MORE TO UNLOCK!";
     } else if (this.state.tierType === "3") {
-      costText = "Pay $" + this.state.tierCost + " or more to also unlock!";
+      costText = "PAY $" + this.state.tierCost + " OR MORE TO ALSO UNLOCK!";
     }
 
     return (
