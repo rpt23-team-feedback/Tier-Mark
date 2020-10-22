@@ -50,7 +50,8 @@ app.get('/tiersIncluded/:bundleId', (req, res) => {
     let tiersData = {
       tier1Id: data[0].dataValues.tierId,
       tier2Id: data[1].dataValues.tierId,
-      tier3Id: data[2].dataValues.tierId
+      tier3Id: data[2].dataValues.tierId,
+      tier3Cost: data[2].dataValues.cost,
     }
     res.json(tiersData);
   })

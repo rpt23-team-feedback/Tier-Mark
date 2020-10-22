@@ -17,15 +17,17 @@ const seedBundles = () => {
       bundleId: bundleId,
       tierId: tierId1,
       tierOrder: 1,
+      cost: cost,
     }, {
       bundleId: bundleId,
       tierId: tierId2,
-      cost: cost,
       tierOrder: 2,
+      cost: cost,
     }, {
       bundleId: bundleId,
       tierId: tierId3,
       tierOrder: 3,
+      cost: cost,
     });
   }
   return bundleData;

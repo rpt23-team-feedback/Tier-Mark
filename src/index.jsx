@@ -10,8 +10,11 @@ class Tiers extends React.Component {
     this.state = {
       bundleId: 1,
       tier1Id: 1,
+      tier1Cost: 1,
       tier2Id: 2,
+      tier2Cost: 3, // from Top Contributors
       tier3Id: 3,
+      tier3Cost: 25,
     }
     this.getBundleData = this.getBundleData.bind(this);
   }
@@ -33,6 +36,7 @@ class Tiers extends React.Component {
           tier1Id: data.tier1Id,
           tier2Id: data.tier2Id,
           tier3Id: data.tier3Id,
+          tier3Cost: data.tier3Cost,
         });
       },
       error: (err) => {
@@ -45,9 +49,9 @@ class Tiers extends React.Component {
     return (
       <div className="tiers-container">
         Bundle {this.state.bundleId}
-        <Tier key={this.state.tier1Id} tierId={this.state.tier1Id}/>
-        <Tier key={this.state.tier2Id} tierId={this.state.tier2Id}/>
-        <Tier key={this.state.tier3Id} tierId={this.state.tier3Id}/>
+        <Tier key={this.state.tier1Id} tierId={this.state.tier1Id} tierCost={this.state.tier1Cost} tierType="1"/>
+        <Tier key={this.state.tier2Id} tierId={this.state.tier2Id} tierCost={this.state.tier2Cost} tierType="2"/>
+        <Tier key={this.state.tier3Id} tierId={this.state.tier3Id} tierCost={this.state.tier3Cost} tierType="3"/>
       </div>
     )
   }

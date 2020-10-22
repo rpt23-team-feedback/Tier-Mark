@@ -11,7 +11,7 @@ class Item extends React.Component {
       itemId: this.props.itemId,
       itemName: 'game 1', // from Item service
       itemImage: '',  // from Item service
-      availability: '', // from System Requirements service
+      availability: 'Steam', // from System Requirements service
       feedback: {
         positiveReviews: 90,  // from Reviews service
         numberOfReviews: 526, // from Reviews service
@@ -27,7 +27,7 @@ class Item extends React.Component {
     this.setState({
       itemId: this.props.itemId
     });
-    this.getItem();
+    // this.getItem();
     this.getAvailability();
     this.getReviews();
   }
