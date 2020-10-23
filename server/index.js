@@ -83,4 +83,35 @@ app.get('/itemsIncluded/:tierId', (req, res) => {
   })
 });
 
+app.get('/itemsByBundleId/:bundleId', (req, res) => {
+  const dataString = req.params;
+  return db.tiersRequest(dataString)
+  .then(tiersData => {
+    if (tiersData) {
+      return tiersData;
+    } else {
+      res.status(404).send('no such bundleId');
+    }
+  })
+  .then(data => {
+    let allItems = {};
+    for (let i = 0; i < data.length; i++) {
+      let currentTier = { tierId: data[i].dataValues.tierId };
+      return db.itemsRequest(currentTier)
+      .then(itemsData => {
+        if (itemsData) {
+          for (let j = 0; j < itemsData.length; j++) {
+            let currentItemId = itemsData[j].dataValues.itemId;
+            allItems[currentItemId] = currentItemId;
+          }
+        }
+        return allItems;
+      })
+    }
+  })
+  .then(itemsData => {
+    res.json(itemsData);
+  })
+});
+
 app.listen(PORT, () => console.log('listening on port', PORT));

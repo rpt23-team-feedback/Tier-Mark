@@ -6,14 +6,14 @@ const sequelize = new Sequelize('humblebundle', 'root', '', { host: 'localhost',
 
 const connection = mysql.createConnection(mysqlConfig);
 
-var Bundles = sequelize.define('bundles', {
+const Bundles = sequelize.define('bundles', {
   bundleId: Sequelize.INTEGER,
   tierId: Sequelize.INTEGER,
   cost: Sequelize.INTEGER,
   tierOrder: Sequelize.INTEGER
 });
 
-var Tiers = sequelize.define('tiers', {
+const Tiers = sequelize.define('tiers', {
   tierId: Sequelize.INTEGER,
   itemId: Sequelize.INTEGER,
   itemOrder: Sequelize.INTEGER
@@ -51,5 +51,5 @@ const itemsRequest = (data) => {
 };
 
 module.exports = {
-  Bundles, Tiers, tiersRequest, itemsRequest
+  Bundles, Tiers, tiersRequest, itemsRequest,
 };
