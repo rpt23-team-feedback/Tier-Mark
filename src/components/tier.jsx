@@ -7,8 +7,8 @@ class Tier extends React.Component {
   constructor (props) {
     super (props);
     this.state = {
-      tierId: this.props.tierId,  // from this service
-      tierCost: 1,  // minimum cost
+      tierId: this.props.tierId,
+      tierCost: this.props.tierCost,
       items: {
         item1: 1,
         item2: 2,
@@ -20,6 +20,8 @@ class Tier extends React.Component {
   componentDidMount() {
     this.setState({
       tierId: this.props.tierId,
+      tierCost: this.props.tierCost,
+      tierType: this.props.tierType,
     });
     this.getTierData();
   }
@@ -47,6 +49,8 @@ class Tier extends React.Component {
 
   render() {
 
+    let costText = this.state.tierCost;
+
     let items = this.state.items;
 
     let itemsArray = [];
@@ -56,9 +60,17 @@ class Tier extends React.Component {
       itemsArray.push(<Item key={itemId} itemId={itemId}/>)
     }
 
+    if (this.state.tierType === '1') {
+      costText = 'PAY $1 TO UNLOCK!';
+    } else if (this.state.tierType === '2') {
+      costText = `PAY $${this.state.tierCost} OR MORE TO UNLOCK!`;
+    } else if (this.state.tierType === '3') {
+      costText = `PAY $${this.state.tierCost} OR MORE TO ALSO UNLOCK!`;
+    }
+
     return (
       <div key={this.props.tierId} className="tier">
-        Tier {this.state.tierId}
+        {costText}
         {itemsArray}
         {/* <Item key={this.state.items.item1} itemId={this.state.items.item1}/> */}
       </div>

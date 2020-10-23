@@ -1,5 +1,8 @@
 .tiers-container {
   margin: 1rem;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: darkblue;
+  font-family: "Sofia Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #d8d8da;
+  background-color: #31343C;
 }

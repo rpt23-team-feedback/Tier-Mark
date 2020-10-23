@@ -1,5 +1,8 @@
 .item-view {
   margin: 1rem;
-  background-color: lightskyblue;
-  font-weight: 200;
+  font-family: "Sofia Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #d8d8da;
+  background-color: #31343C;
 }
