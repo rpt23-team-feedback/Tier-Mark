@@ -7,7 +7,7 @@ class Tier extends React.Component {
   constructor (props) {
     super (props);
     this.state = {
-      tierId: this.props.tierId,  // from this service
+      tierId: this.props.tierId,
       tierCost: this.props.tierCost,
       items: {
         item1: 1,
@@ -49,23 +49,23 @@ class Tier extends React.Component {
 
   render() {
 
-    var costText = this.state.tierCost;
+    let costText = this.state.tierCost;
 
-    var items = this.state.items;
+    let items = this.state.items;
 
-    var itemsArray = [];
+    let itemsArray = [];
 
-    for (var key in items) {
-      var itemId = items[key];
+    for (let key in items) {
+      let itemId = items[key];
       itemsArray.push(<Item key={itemId} itemId={itemId}/>)
     }
 
-    if (this.state.tierType === "1") {
-      costText = "PAY $1 TO UNLOCK!";
-    } else if (this.state.tierType === "2") {
-      costText = "PAY $" + this.state.tierCost + " OR MORE TO UNLOCK!";
-    } else if (this.state.tierType === "3") {
-      costText = "PAY $" + this.state.tierCost + " OR MORE TO ALSO UNLOCK!";
+    if (this.state.tierType === '1') {
+      costText = 'PAY $1 TO UNLOCK!';
+    } else if (this.state.tierType === '2') {
+      costText = `PAY $${this.state.tierCost} OR MORE TO UNLOCK!`;
+    } else if (this.state.tierType === '3') {
+      costText = `PAY $${this.state.tierCost} OR MORE TO ALSO UNLOCK!`;
     }
 
     return (
