@@ -4,6 +4,8 @@ import Tier from './components/tier.jsx';
 import $ from 'jquery';
 import './index.css';
 
+const awsAddress = 'http://3.15.215.14/';
+
 class Tiers extends React.Component {
   constructor(props) {
     super(props);
@@ -29,7 +31,7 @@ class Tiers extends React.Component {
 
     $.ajax({
       method: 'GET',
-      url: 'http://localhost:3101/tiersIncluded/' + bundleId,
+      url: `${awsAddress}tiersIncluded/${bundleId}`,
       datatype: 'json',
       success: (data) => {
         this.setState({

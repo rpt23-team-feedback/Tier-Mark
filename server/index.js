@@ -32,13 +32,16 @@ app.get('/tiersIncluded', (req, res) => {
     res.json(tiersData);
   })
   .catch(err => {
-    res.status(500);
+    res.status(500).send(err);
   })
 });
 
 app.get('/tiersIncluded/:bundleId', (req, res) => {
-  const dataString = req.params;
-  return db.tiersRequest(dataString)
+  const dataObj = req.params;
+  if(dataObj.bundleId < 1 || dataObj.bundleId > 100 || typeof dataObj.bundleId !== 'number') {
+    res.status(404).send('not a valud bundleId');
+  };
+  return db.tiersRequest(dataObj)
   .then(tiersData => {
     if (tiersData) {
       return tiersData;
@@ -56,13 +59,16 @@ app.get('/tiersIncluded/:bundleId', (req, res) => {
     res.json(tiersData);
   })
   .catch(err => {
-    res.status(500);
+    res.status(500).send(err);
   })
 });
 
 app.get('/itemsIncluded/:tierId', (req, res) => {
-  const dataString = req.params;
-  return db.itemsRequest(dataString)
+  const dataObj = req.params;
+  if(dataObj.tier1Id < 1 || dataObj.tierId > 300 || typeof dataObj.tier1Id !== 'number') {
+    res.status(404).send('not a valud bundleId');
+  };
+  return db.itemsRequest(dataObj)
   .then(itemsData => {
     if (itemsData) {
       return itemsData;
@@ -79,13 +85,16 @@ app.get('/itemsIncluded/:tierId', (req, res) => {
   })
   .catch(err => {
     console.log('got caught?', err);
-    res.status(500);
+    res.status(500).send(err);
   })
 });
 
 app.get('/itemsByBundleId/:bundleId', (req, res) => {
-  const dataString = req.params;
-  return db.tiersRequest(dataString)
+  const dataObj = req.params;
+  if(dataObj.bundleId < 1 || dataObj.bundleId > 100 || typeof dataObj.bundleId !== 'number') {
+    res.status(404).send('not a valud bundleId');
+  };
+  return db.tiersRequest(dataObj)
   .then(tiersData => {
     if (tiersData) {
       return tiersData;
@@ -111,6 +120,9 @@ app.get('/itemsByBundleId/:bundleId', (req, res) => {
   })
   .then(itemsData => {
     res.json(itemsData);
+  })
+  .catch(err => {
+    res.status(500).send(err);
   })
 });
 

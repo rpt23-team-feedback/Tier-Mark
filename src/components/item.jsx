@@ -36,7 +36,7 @@ class Item extends React.Component {
     let itemId = this.state.itemId;
     $.ajax({
       method: 'GET',
-      url: itemDetailsUrl + 'single/' + itemId,
+      url: `${itemDetailsUrl}single/${itemId}`,
       datatype: 'json',
       success: (data) => {
         console.log('game data received', data);
