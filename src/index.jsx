@@ -4,7 +4,7 @@ import Tier from './components/tier.jsx';
 import $ from 'jquery';
 import './index.css';
 
-const awsAddress = 'http://3.15.215.14/';
+const awsAddress = 'http://3.15.215.14:3101/';
 
 class Tiers extends React.Component {
   constructor(props) {
