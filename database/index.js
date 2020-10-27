@@ -1,8 +1,7 @@
 const mysql = require('mysql');
 const mysqlConfig = require('./config.js');
 const { Sequelize } = require('sequelize');
-const { user } = require('./config.js');
-const sequelize = new Sequelize('humblebundle', 'root', '', { host: 'localhost', dialect: 'mysql'});
+const sequelize = new Sequelize('humblebundle', 'fec', '', { host: 'localhost', dialect: 'mysql'});
 
 const connection = mysql.createConnection(mysqlConfig);
 
