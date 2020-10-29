@@ -39,7 +39,7 @@ app.get('/tiersIncluded', (req, res) => {
 app.get('/tiersIncluded/:bundleId', (req, res) => {
   const dataObj = req.params;
   if(dataObj.bundleId < 1 || dataObj.bundleId > 100 || typeof dataObj.bundleId !== 'number') {
-    res.status(404).send('not a valud bundleId');
+    res.status(404).send('not a valid bundleId');
   };
   return db.tiersRequest(dataObj)
   .then(tiersData => {
