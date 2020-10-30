@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('../database/index.js');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 
@@ -124,6 +125,10 @@ app.get('/itemsByBundleId/:bundleId', (req, res) => {
   .catch(err => {
     res.status(500).send(err);
   })
+});
+
+app.use('*', (req,res) =>{
+  res.sendFile(path.join(__dirname + '/../dist/index.html'));
 });
 
 app.listen(PORT, () => console.log('listening on port', PORT));

@@ -9,7 +9,7 @@ class Bundle extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      bundleId: parseInt(this.props.match.params.id),
+      bundleId: parseInt(this.props.match.params.bundleId),
       tier1Id: 1,
       tier1Cost: 1,
       tier2Id: 2,
@@ -28,6 +28,9 @@ class Bundle extends React.Component {
     // var url = new URL(window.location);
     // var bundleId = url.searchParams.get('bundle');
     var bundleId = this.state.bundleId;
+    if (bundleId < 1 || bundleId > 100) {
+      return 1;
+    }
 
     $.ajax({
       method: 'GET',
