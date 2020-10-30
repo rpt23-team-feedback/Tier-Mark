@@ -17,15 +17,13 @@ class Tier extends React.Component {
       }
     }
     this.getTierData = this.getTierData.bind(this);
-  }
 
-  componentDidMount() {
     this.setState({
       tierId: this.props.tierId,
       tierCost: this.props.tierCost,
       tierType: this.props.tierType,
     });
-    this.getTierData();
+    // this.getTierData();
   }
 
   getTierData() {

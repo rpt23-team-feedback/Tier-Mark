@@ -1,10 +1,6 @@
-const mysql = require('mysql');
-const mysqlConfig = require('./config.js');
 const { Sequelize } = require('sequelize');
-const { user } = require('./config.js');
-const sequelize = new Sequelize('humblebundle', 'root', '', { host: 'localhost', dialect: 'mysql'});
-
-const connection = mysql.createConnection(mysqlConfig);
+const password = require('./config.js').password;
+const sequelize = new Sequelize('humblebundle', 'mark', password, { host: 'localhost', dialect: 'mysql'});
 
 const Bundles = sequelize.define('bundles', {
   bundleId: Sequelize.INTEGER,

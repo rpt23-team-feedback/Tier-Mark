@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('../database/index.js');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 
@@ -39,7 +40,7 @@ app.get('/tiersIncluded', (req, res) => {
 app.get('/tiersIncluded/:bundleId', (req, res) => {
   const dataObj = req.params;
   if(dataObj.bundleId < 1 || dataObj.bundleId > 100 || typeof dataObj.bundleId !== 'number') {
-    res.status(404).send('not a valud bundleId');
+    res.status(404).send('not a valid bundleId');
   };
   return db.tiersRequest(dataObj)
   .then(tiersData => {
@@ -124,6 +125,10 @@ app.get('/itemsByBundleId/:bundleId', (req, res) => {
   .catch(err => {
     res.status(500).send(err);
   })
+});
+
+app.use('*', (req,res) =>{
+  res.sendFile(path.join(__dirname + '/../dist/index.html'));
 });
 
 app.listen(PORT, () => console.log('listening on port', PORT));
