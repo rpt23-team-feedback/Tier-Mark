@@ -25,8 +25,6 @@ class Bundle extends React.Component {
   }
 
   getBundleData() {
-    // var url = new URL(window.location);
-    // var bundleId = url.searchParams.get('bundle');
     var bundleId = this.state.bundleId;
     if (bundleId < 1 || bundleId > 100) {
       return 1;
