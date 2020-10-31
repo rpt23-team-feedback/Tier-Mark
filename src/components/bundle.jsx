@@ -3,19 +3,20 @@ import Tier from './tier.jsx';
 import $ from 'jquery';
 import './index.css';
 
-const awsAddress = 'http://3.15.215.14:3101/';
+// const awsAddress = 'http://3.15.215.14:3101/';
+const awsAddress = 'http://localhost:3101/'; // for local testing
 
 class Bundle extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       bundleId: parseInt(this.props.match.params.bundleId),
-      tier1Id: 1,
+      tier1Id: parseInt((this.props.match.params.bundleId - 1) * 3 + 1),
       tier1Cost: 1,
-      tier2Id: 2,
+      tier2Id: parseInt((this.props.match.params.bundleId - 1) * 3 + 2),
       tier2Cost: 3, // from Top Contributors
-      tier3Id: 3,
-      tier3Cost: 25,
+      tier3Id: parseInt((this.props.match.params.bundleId - 1) * 3 + 3),
+      tier3Cost: ((Math.floor(this.props.match.params.bundleId / 25) + 1) * 5),
     }
     this.getBundleData = this.getBundleData.bind(this);
   }
