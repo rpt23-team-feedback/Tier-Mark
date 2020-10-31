@@ -3,8 +3,8 @@ import Tier from './tier.jsx';
 import $ from 'jquery';
 import './index.css';
 
-// const awsAddress = 'http://3.15.215.14:3101/';
-const awsAddress = 'http://localhost:3101/'; // for local testing
+const awsAddress = 'http://3.15.215.14:3101/';
+// const awsAddress = 'http://localhost:3101/'; // for local testing
 
 class Bundle extends React.Component {
   constructor(props) {

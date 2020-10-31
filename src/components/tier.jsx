@@ -3,8 +3,8 @@ import Item from './item.jsx';
 import $ from 'jquery';
 import './tier.css';
 
-// const awsAddress = 'http://3.15.215.14:3101/';
-const awsAddress = 'http://localhost:3101/'; // for local testing
+const awsAddress = 'http://3.15.215.14:3101/';
+// const awsAddress = 'http://localhost:3101/'; // for local testing
 
 class Tier extends React.Component {
   constructor (props) {
