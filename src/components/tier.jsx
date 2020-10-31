@@ -12,19 +12,18 @@ class Tier extends React.Component {
     this.state = {
       tierId: this.props.tierId,
       tierCost: this.props.tierCost,
+      tierType: this.props.tierType,
       items: {
-        item1: 1,
-        item2: 2,
+        item1: parseInt((this.props.tierId * this.props.tierId) / 313 + 6),
+        item2: (this.props.tierId),
+        item3: parseInt(this.props.tierId * this.props.tierCost / 92),
+        item4: null,
+        item5: null,
+        item6: null,
       }
     }
     this.getTierData = this.getTierData.bind(this);
-
-    this.setState({
-      tierId: this.props.tierId,
-      tierCost: this.props.tierCost,
-      tierType: this.props.tierType,
-    });
-    // this.getTierData();
+    this.getTierData();
   }
 
   getTierData() {
@@ -38,6 +37,10 @@ class Tier extends React.Component {
           items: {
             item1: data.item1,
             item2: data.item2,
+            item3: data.item3 || null,
+            item4: data.item4 || null,
+            item5: data.item5 || null,
+            item6: data.item6 || null,
           }
         })
       },
@@ -49,8 +52,7 @@ class Tier extends React.Component {
 
 
   render() {
-
-    let costText = this.state.tierCost;
+    let costText;
 
     let items = this.state.items;
 
@@ -58,7 +60,9 @@ class Tier extends React.Component {
 
     for (let key in items) {
       let itemId = items[key];
-      itemsArray.push(<Item key={itemId} itemId={itemId}/>)
+      if (itemId) {
+        itemsArray.push(<Item key={itemId} itemId={itemId}/>)
+      }
     }
 
     if (this.state.tierType === '1') {
@@ -73,7 +77,6 @@ class Tier extends React.Component {
       <div key={this.props.tierId} className="tier">
         {costText}
         {itemsArray}
-        {/* <Item key={this.state.items.item1} itemId={this.state.items.item1}/> */}
       </div>
     )
   }

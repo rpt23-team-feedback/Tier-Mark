@@ -49,7 +49,6 @@ class Item extends React.Component {
       }
     })
 
-    // Fake data generator in case Item service unresponsive
   }
 
   getAvailability() {
