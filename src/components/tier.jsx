@@ -9,21 +9,26 @@ const awsAddress = 'http://localhost:3101/'; // for local testing
 class Tier extends React.Component {
   constructor (props) {
     super (props);
+
+    let procgenDetails = this.getDefaults();
+
     this.state = {
       tierId: this.props.tierId,
       tierCost: this.props.tierCost,
       tierType: this.props.tierType,
       items: {
-        item1: parseInt((this.props.tierId * this.props.tierId) / 313 + 6),
-        item2: (this.props.tierId),
-        item3: parseInt(this.props.tierId * this.props.tierCost / 92),
-        item4: null,
-        item5: null,
-        item6: null,
+        item1: procgenDetails.item1,
+        item2: procgenDetails.item2,
+        item3: procgenDetails.item3,
+        item4: procgenDetails.item4,
+        item5: procgenDetails.item5,
+        item6: procgenDetails.item6,
       }
     }
     this.getTierData = this.getTierData.bind(this);
-    this.getTierData();
+    this.getDefaults = this.getDefaults.bind(this);
+    this.numberGenerator = this.numberGenerator.bind(this);
+    // this.getTierData();
   }
 
   getTierData() {
@@ -48,6 +53,31 @@ class Tier extends React.Component {
         console.log('err', err);
       }
     })
+  }
+
+  getDefaults() {
+    let tierId = this.props.tierId;
+
+    let defaults = { item1: null, item2: null, item3: null, item4: null, item5: null, item6: null };
+
+    defaults.item1 = this.numberGenerator((tierId * 1).toString(), (tierId - 1));
+    defaults.item2 = this.numberGenerator((tierId * 2).toString(), (tierId - 1));
+    defaults.item3 = this.numberGenerator((tierId * 3).toString(), (tierId - 1));
+    defaults.item4 = this.numberGenerator((tierId * 4).toString(), (tierId - 1));
+    defaults.item5 = this.numberGenerator((tierId * 5).toString(), (tierId - 1));
+    defaults.item6 = this.numberGenerator((tierId * 6).toString(), (tierId - 1));
+
+    return defaults;
+  }
+
+  numberGenerator (value, max) {
+    var hash = 0;
+    for (var i = 0; i < value.length; i++) {
+      hash = (hash << 5) + hash + value.charCodeAt(i);
+      hash = hash & hash; // Convert to 32bit integer
+      hash = Math.abs(hash);
+    }
+    return hash % max;
   }
 
 
@@ -75,6 +105,7 @@ class Tier extends React.Component {
 
     return (
       <div key={this.props.tierId} className="tier">
+        {/* {this.state.tierId}<br /> */}
         {costText}
         {itemsArray}
       </div>

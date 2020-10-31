@@ -19,7 +19,7 @@ class Bundle extends React.Component {
       tier3Cost: ((Math.floor(this.props.match.params.bundleId / 25) + 1) * 5),
     }
     this.getBundleData = this.getBundleData.bind(this);
-    this.getBundleData();
+    // this.getBundleData();
   }
 
   getBundleData() {
