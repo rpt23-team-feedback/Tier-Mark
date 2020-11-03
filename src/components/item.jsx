@@ -7,9 +7,12 @@ const itemDetailsUrl = 'http://localhost:3200/';
 class Item extends React.Component {
   constructor(props) { //
     super(props);
+
+    let procgenDetails = this.getDefaults();
+
     this.state = {
       itemId: this.props.itemId,
-      itemName: 'game 1', // from Item service
+      itemName: procgenDetails.itemName, // from Item service
       itemImage: '',  // from Item service
       availability: 'Steam', // from System Requirements service
       feedback: {
@@ -21,15 +24,38 @@ class Item extends React.Component {
     this.getItem = this.getItem.bind(this);
     this.getAvailability = this.getAvailability.bind(this);
     this.getReviews = this.getReviews.bind(this);
+    this.getDefaults = this.getDefaults.bind(this);
+
+    // this.getItem();
+    // this.getAvailability();
+    // this.getReviews();
   }
 
-  componentDidMount  () {
-    this.setState({
-      itemId: this.props.itemId
-    });
-    // this.getItem();
-    this.getAvailability();
-    this.getReviews();
+  getDefaults() {
+    let itemId = this.props.itemId;
+
+    let defaults = {};
+
+    let firstWordBucket = ['Cloud', 'Final', 'Rabid', 'Desperate', 'Kingdom', 'Blood', 'Frozen', 'Alpha', 'Fate', 'Anonymous', 'Doki Doki', 'Super'];
+    let bridgeWordBucket = [' ', ' of ', ' and ', ' or '];
+    let lastWordBucket = ['Fantasy', 'Resistance', 'Gear', 'Wombat', 'Clank', 'Loathing', 'Glory'];
+    let f = this.numberGenerator(itemId.toString(), firstWordBucket.length - 1);
+    let m = this.numberGenerator(itemId.toString(), bridgeWordBucket.length - 1);
+    let l = this.numberGenerator(itemId.toString(), lastWordBucket.length - 1);
+    let itemName = firstWordBucket[f] + bridgeWordBucket[m] + lastWordBucket[l];
+    defaults.itemName = itemName;
+
+    return defaults;
+  }
+
+  numberGenerator (value, max) {
+    var hash = 0;
+    for (var i = 0; i < value.length; i++) {
+      hash = (hash << 5) + hash + value.charCodeAt(i);
+      hash = hash & hash; // Convert to 32bit integer
+      hash = Math.abs(hash);
+    }
+    return hash % max;
   }
 
   getItem() {
@@ -49,7 +75,6 @@ class Item extends React.Component {
       }
     })
 
-    // Fake data generator in case Item service unresponsive
   }
 
   getAvailability() {
@@ -68,8 +93,8 @@ class Item extends React.Component {
     return (
       <div className="item-view">
         <div key={this.props.itemId} className="item">
-          ItemId: {this.props.itemId} <br/>
-          {/* Name: {this.state.itemName} <br/> */}
+          {/* ItemId: {this.props.itemId} <br/> */}
+          {this.state.itemName} <br/>
           {/* Systems: {this.state.availability} <br/> */}
           {/* Good Reviews: {this.state.feedback.positiveReviews}% <br/> */}
           {/* Total Reviews: {this.state.feedback.numberOfReviews} <br/> */}

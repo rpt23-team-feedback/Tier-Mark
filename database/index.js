@@ -24,7 +24,9 @@ const tiersRequest = (data) => {
     }
   })
   .then(data => {
-    return data;
+    if (data) {
+      return data;
+    }
   })
   .catch(err => {
     console.log('error', err);
