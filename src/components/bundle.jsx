@@ -4,8 +4,8 @@ import $ from 'jquery';
 import './index.css';
 
 const awsAddress = 'http://3.15.215.14:3101/';
-const awsTopContributorsURL = '';
 // const awsAddress = 'http://localhost:3101/'; // for local testing
+const awsTopContributorsURL = '';
 
 class Bundle extends React.Component {
   constructor(props) {
@@ -43,6 +43,7 @@ class Bundle extends React.Component {
       },
       error: (err) => {
         console.log('err', err);
+      }
     })
   }
 
