@@ -1,6 +1,7 @@
 import React from 'react';
 import './item.css';
 import $ from 'jquery';
+import help from './defaulthelpers';
 
 const itemDetailsUrl = '';
 
@@ -13,7 +14,7 @@ class Item extends React.Component {
     this.state = {
       itemId: this.props.itemId,
       itemName: procgenDetails.itemName, // from Item service
-      itemImage: '',  // from Item service
+      itemImage: procgenDetails.itemImage,  // from Item service
       availability: 'Steam', // from System Requirements service
       feedback: {
         positiveReviews: 90,  // from Reviews service
@@ -26,7 +27,7 @@ class Item extends React.Component {
     this.getReviews = this.getReviews.bind(this);
     this.getDefaults = this.getDefaults.bind(this);
 
-    // this.getItem();
+    this.getItem();
     // this.getAvailability();
     // this.getReviews();
   }
@@ -45,6 +46,7 @@ class Item extends React.Component {
     let itemName = firstWordBucket[f] + bridgeWordBucket[m] + lastWordBucket[l];
     defaults.itemName = itemName;
 
+    defaults.itemImage = help.gamePhotos[itemId - 1];
 
 
     return defaults;
@@ -69,7 +71,8 @@ class Item extends React.Component {
       success: (data) => {
         console.log('game data received', data);
         this.setState({
-          //
+          itemName = data.name,
+          itemImage = data.photo_url,
         })
       },
       error: (err) => {
