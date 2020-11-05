@@ -60,12 +60,27 @@ class Tier extends React.Component {
 
     let defaults = { item1: null, item2: null, item3: null, item4: null, item5: null, item6: null };
 
-    defaults.item1 = this.numberGenerator((tierId * 1).toString(), (tierId - 1));
-    defaults.item2 = this.numberGenerator((tierId * 2).toString(), (tierId - 1));
-    defaults.item3 = this.numberGenerator((tierId * 3).toString(), (tierId - 1));
-    defaults.item4 = this.numberGenerator((tierId * 4).toString(), (tierId - 1));
-    defaults.item5 = this.numberGenerator((tierId * 5).toString(), (tierId - 1));
-    defaults.item6 = this.numberGenerator((tierId * 6).toString(), (tierId - 1));
+    defaults.item1 = this.numberGenerator((tierId * 1).toString(), (tierId));
+    defaults.item2 = this.numberGenerator((tierId * 2).toString(), (tierId));
+    if (defaults.item2 === defaults.item1) {
+      defaults.item2++;
+    };
+    defaults.item3 = this.numberGenerator((tierId * 3).toString(), (tierId));
+    if (defaults.item3 === defaults.item2) {
+      defaults.item3++;
+    };
+    defaults.item4 = this.numberGenerator((tierId * 4).toString(), (tierId));
+    if (defaults.item4 === defaults.item3) {
+      defaults.item4++;
+    };
+    defaults.item5 = this.numberGenerator((tierId * 5).toString(), (tierId));
+    if (defaults.item5 === defaults.item4) {
+      defaults.item5++;
+    };
+    defaults.item6 = this.numberGenerator((tierId * 6).toString(), (tierId));
+    if (defaults.item6 === defaults.item5) {
+      defaults.item6++;
+    };
 
     return defaults;
   }
