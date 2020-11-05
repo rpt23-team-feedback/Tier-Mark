@@ -54,7 +54,6 @@ app.get('/tiersIncluded/:bundleId', (req, res) => {
       defaults.tier2Id = (bundleId - 1) * 3 + 2;
       defaults.tier3Id = (bundleId - 1) * 3 + 3;
       defaults.tier3Cost = ((Math.floor(bundleId / 25) + 1) * 5);
-      console.log('using default tiers', defaults);
       res.json(defaults);
     }
   })
