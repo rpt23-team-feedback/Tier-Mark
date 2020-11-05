@@ -28,7 +28,8 @@ class Tier extends React.Component {
     this.getTierData = this.getTierData.bind(this);
     this.getDefaults = this.getDefaults.bind(this);
     this.numberGenerator = this.numberGenerator.bind(this);
-    // this.getTierData();
+
+    this.getTierData();
   }
 
   getTierData() {
