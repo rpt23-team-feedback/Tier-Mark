@@ -2,7 +2,7 @@ import React from 'react';
 import './item.css';
 import $ from 'jquery';
 
-const itemDetailsUrl = 'http://localhost:3200/';
+const itemDetailsUrl = '';
 
 class Item extends React.Component {
   constructor(props) { //
@@ -44,6 +44,8 @@ class Item extends React.Component {
     let l = this.numberGenerator(itemId.toString(), lastWordBucket.length - 1);
     let itemName = firstWordBucket[f] + bridgeWordBucket[m] + lastWordBucket[l];
     defaults.itemName = itemName;
+
+
 
     return defaults;
   }
