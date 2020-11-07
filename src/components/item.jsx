@@ -27,8 +27,8 @@ class Item extends React.Component {
     this.getReviews = this.getReviews.bind(this);
     this.getDefaults = this.getDefaults.bind(this);
 
-    this.getItem();
-    this.getReviews();
+    // this.getItem();
+    // this.getReviews();
   }
 
   getDefaults() {
@@ -105,13 +105,18 @@ class Item extends React.Component {
   render() {
     return (
       <div className="item-view">
-        <div key={this.props.itemId} className="item">
-          ItemId: {this.props.itemId} <br/>
-          {this.state.itemName} <br/>
-          Systems: {this.state.availability} <br/>
-          Good Reviews: {this.state.feedback.positiveReviews}% <br/>
-          Total Reviews: {this.state.feedback.numberOfReviews} <br/>
-          Reviews From: {this.state.feedback.reviewsFrom} <br/>
+        <div key={this.props.itemId} className="item item-box">
+          <div className="image-holder">
+            <img src={this.state.itemImage} className="image" />
+          </div>
+          <div className="caption-container">
+            {/* ItemId: {this.props.itemId} <br/> */}
+            {this.state.itemName} <br/>
+            Systems: {this.state.availability} <br/>
+            Good Reviews: {this.state.feedback.positiveReviews}% <br/>
+            Total Reviews: {this.state.feedback.numberOfReviews} <br/>
+            Reviews From: {this.state.feedback.reviewsFrom} <br/>
+          </div>
         </div>
       </div>
     )

@@ -1,8 +1,43 @@
 .item-view {
   margin: 1rem;
   font-family: "Sofia Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
   color: #d8d8da;
   background-color: #31343C;
+  display: flex;
+  vertical-align: middle;
+  display: inline-flex;
+  flex-direction: row;
+}
+.item-box {
+  width: 180px;
+  margin: 13px 10px 0;
+  position: relative;
+  align-self: baseline;
+  padding: 0;
+  text-align: center;
+}
+.image-holder {
+  position: relative;
+  display: block;
+  font-size: 0;
+  text-align: center;
+}
+.caption-container {
+  position: relative;
+  text-align: center;
+  justify-self: flex-start;
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: .2px;
+  text-align: center;
+  margin: 5px auto;
+  max-width: 170px;
+  color: #e8e8e8;
+  display: block;
+}
+.image {
+  width: 149px;
+  height: 149px;
 }
