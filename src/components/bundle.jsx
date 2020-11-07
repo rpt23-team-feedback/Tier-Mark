@@ -5,6 +5,7 @@ import './index.css';
 
 const awsAddress = 'http://3.15.215.14:3101/';
 // const awsAddress = 'http://localhost:3101/'; // for local testing
+const awsTopContributorsURL = '';
 
 class Bundle extends React.Component {
   constructor(props) {
@@ -14,12 +15,36 @@ class Bundle extends React.Component {
       tier1Id: parseInt((this.props.match.params.bundleId - 1) * 3 + 1),
       tier1Cost: 1,
       tier2Id: parseInt((this.props.match.params.bundleId - 1) * 3 + 2),
-      tier2Cost: 3, // from Top Contributors
+      tier2Cost: 3,
       tier3Id: parseInt((this.props.match.params.bundleId - 1) * 3 + 3),
       tier3Cost: ((Math.floor(this.props.match.params.bundleId / 25) + 1) * 5),
     }
     this.getBundleData = this.getBundleData.bind(this);
-    // this.getBundleData();
+    this.getTierCost = this.getTierCost.bind(this);
+
+    this.getBundleData();
+    this.getTierCost();
+  }
+
+  getTierCost() {
+    var bundleId = this.state.bundleId;
+    if (bundleId < 1 || bundleId > 100) {
+      return 3;
+    }
+
+    $.ajax({
+      method: 'GET',
+      url: `${awsTopContributorsURL}averageSale/${bundleId}`,
+      datatype: 'json',
+      success: (data) => {
+        this.setState({
+          tier2Cost: data.Numbers.averageSale,
+        })
+      },
+      error: (err) => {
+        console.log('err', err);
+      }
+    })
   }
 
   getBundleData() {
