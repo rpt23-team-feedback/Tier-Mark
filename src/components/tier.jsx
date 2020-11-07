@@ -123,6 +123,7 @@ class Tier extends React.Component {
       <div key={this.props.tierId} className="tier">
         {/* {this.state.tierId}<br /> */}
         {costText}
+        <br />
         {itemsArray}
       </div>
     )
